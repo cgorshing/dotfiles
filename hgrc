@@ -1,0 +1,16 @@
+[ui]
+ssh=C:\tools\putty\plink.exe -C -batch -ssh -2 -i C:\Users\Chad\_ssh\BitBucket.ppk
+username = 
+merge = winmergeu
+
+[extensions]
+hgext.graphlog =
+fetch =
+convert =
+
+[merge-tools]
+winmergeu.executable=C:\Program Files (x86)\WinMerge\winmergeu.exe
+winmergeu.args=$other $local $output
+winmergeu.fixeol=True
+winmergeu.checkchanged=True
+winmergeu.gui=False

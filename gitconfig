@@ -1,0 +1,32 @@
+[user]
+  name = Chad Gorshing
+  email = 
+[merge]
+  tool = bc3
+[mergetool]
+  bc3 = trustExitCode
+[diff]
+  tool = bc3
+[difftool]
+  bc3 = trustExitCode
+[core]
+  excludesfile = /Users/cgorshing/.gitignore_global
+  autocrlf = false
+  safecrlf = true
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  hist = log --pretty=format:'%h %ad | %s %d [%an]' --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+[color]
+  #ui = 1
+  ui = auto
+[color "branch"]
+  current = yellow bold
+  local = green bold
+  remote = cyan bold
+[push]
+  default = simple
