@@ -1,6 +1,6 @@
 [user]
   name = Chad Gorshing
-  email = 
+  email = gorshing@gmail.com
 [merge]
   tool = bc3
 [mergetool]
@@ -30,3 +30,9 @@
   remote = cyan bold
 [push]
   default = simple
+[difftool "sourcetree"]
+  cmd = /usr/local/bin/bcomp \"$LOCAL\" \"$REMOTE\"
+  path = -ro
+[mergetool "sourcetree"]
+  cmd = /usr/local/bin/bcomp \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+  trustExitCode = true
