@@ -7,6 +7,7 @@
   bc3 = trustExitCode
 [diff]
   tool = bc3
+  compactionHeuristic = true
 [difftool]
   bc3 = trustExitCode
 [core]
