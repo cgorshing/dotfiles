@@ -113,11 +113,20 @@ alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
 
+alias cdw='cd ~/workspaces'
+alias cdt='cd ~/tools'
+alias gemspec='vi *.gemspec'
+
 alias lsr='ls -lrt'
 alias cdi='cd /cygdrive/c/Users/cgorshing/.IntelliJIdea10/system/tomcat'
 alias depAnalyze='mvn dependency:analyze'
-alias depTree='mvn dependency:tree'
+alias depTree='mvn dependency:tree > depTree'
 alias surefire-grep='grep -H "Tests run" target/surefire-reports/*.txt | grep FAILURE'
+alias fails='vi target/surefire-reports/munit.*'
+
+alias air='cd ~/workspaces/mule/Airbnb'
+alias mcp='mvn clean package'
+alias mct='mvn clean test'
 
 set -o vi
 
@@ -203,25 +212,37 @@ set -o vi
 # }
 # 
 # alias cd=cd_func
-alias f='find . -type d -name .svn -prune -o -type f '
+
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 export GREP_OPTIONS="--binary-files=without-match --color=auto --devices=skip --exclude-dir=CVS --exclude-dir=.libs --exclude-dir=.deps --exclude-dir=.svn"
-
-
-# ===== Originally mac os .bashrc
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-launchctl setenv PATH $PATH
-
-#. $HOME/workspaces/dotfiles/bashrc
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-alias cdw='cd ~/workspaces'
-alias cdt='cd ~/tools'
-alias gemspec='vi *.gemspec'
 
 export PS1='\u:\w: \n$ '
 
 export MAVEN_OPTS=-Xmx512m
+export JAVA_HOME=$(/usr/libexec/java_home)
 
-[[ -f ./clientrc ]] && . ./clientrc
+get_script_dir () {
+     SOURCE="${BASH_SOURCE[0]}"
+     while [ -h "$SOURCE" ]; do
+          DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+          SOURCE="$( readlink "$SOURCE" )"
+          [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+     done
+     $( cd -P "$( dirname "$SOURCE" )" )
+     pwd
+}
+
+
+[[ -f $(get_script_dir)/clientrc ]] && . $(get_script_dir)/clientrc
+#[[ -f ./clientrc ]] && . ./clientrc
+
+export NVM_DIR="/Users/cgorshing/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+#export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+launchctl setenv PATH $PATH
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
