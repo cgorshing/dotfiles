@@ -107,3 +107,33 @@ augroup resCur
   autocmd!
   autocmd BufWinEnter * call ResCur()
 augroup END
+
+
+"http://fahdshariff.blogspot.com/2012/06/vim-change-statusline-colour-based-on.html
+" statusline
+" format markers:
+"   %t File name (tail) of file in the buffer
+"   %m Modified flag, text is " [+]"; " [-]" if 'modifiable' is off.
+"   %r Readonly flag, text is " [RO]".
+"   %y Type of file in the buffer, e.g., " [vim]".
+"   %= Separation point between left and right aligned items.
+"   %l Line number.
+"   %L Number of lines in buffer.
+"   %c Column number.
+"   %P percentage through buffer
+set statusline=%t\ %m%r%y%=(%l/%L,%c)\ (%P)
+set laststatus=2
+" change highlighting based on mode
+"if version >= 700
+" highlight statusLine cterm=bold ctermfg=black ctermbg=red
+" au InsertLeave * highlight StatusLine cterm=bold ctermfg=black ctermbg=red
+" au InsertEnter * highlight StatusLine cterm=bold ctermfg=black ctermbg=green
+"ndif
+
+
+set ruler
+"set rulerformat=%l,%c%V%=%P
+set rulerformat=%l\:%c       "better ruler format"
+
+hi statusline guibg=DarkGrey ctermfg=White guifg=White ctermbg=DarkGrey
+hi statuslinenc guibg=DarkGrey ctermfg=LightGrey guifg=White ctermbg=DarkGrey
