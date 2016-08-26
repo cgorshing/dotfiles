@@ -56,7 +56,10 @@ export PS1='\u:\w: \n$ '
 #
 # Uncomment to turn on programmable completion enhancements.
 # Any completions you add in ~/.bash_completion are sourced last.
-# [[ -f /etc/bash_completion ]] && . /etc/bash_completion
+#[[ -f /etc/bash_completion ]] && . /etc/bash_completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 
 # History Options
 #
@@ -123,12 +126,32 @@ alias depAnalyze='mvn dependency:analyze'
 alias depTree='mvn dependency:tree > depTree'
 alias surefire-grep='grep -H "Tests run" target/surefire-reports/*.txt | grep FAILURE'
 alias fails='vi target/surefire-reports/munit.*'
+alias skip='mvn clean package -DskipMunitTests'
 
 alias air='cd ~/workspaces/mule/Airbnb'
+alias equus='cd ~/workspaces/mule/EquusPOC'
 alias mcp='mvn clean package'
 alias mct='mvn clean test'
 
+alias skipTests='mvn clean package -DskipTests'
+alias skipJustMunitTests='mvn clean package -DskipMunitTests'
+alias runTests='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
+alias oneTest='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
+alias singleTest='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
+
+
+alias ssh-get-pub-from-private='ssh-keygen -y -f ~/.ssh/id_rsa'
+
 set -o vi
+
+
+alias g='git status'
+
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
 
 # Umask
 #
