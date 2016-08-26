@@ -241,6 +241,8 @@ get_script_dir () {
 export NVM_DIR="/Users/cgorshing/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+export PATH=$PATH:/Users/cgorshing/tools/terraform_0.6.16_darwin_amd64
+
 #export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 launchctl setenv PATH $PATH
 
