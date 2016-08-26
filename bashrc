@@ -18,7 +18,7 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-echo 'In .bashrc'
+#echo 'In .bashrc'
 
 export PS1='\u:\w: \n$ '
 # Shell Options
