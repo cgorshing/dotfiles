@@ -68,6 +68,10 @@ endif
 "set background=dark
 filetype plugin indent on
 
+"https://github.com/tpope/vim-markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown nocin tw=79
+autocmd BufNewFile,BufReadPost *.html set tw=79
+
 "The following is really nice for editing paragraphs, but not for coding
 "set formatoptions+=a
 
