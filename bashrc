@@ -150,6 +150,7 @@ set -o vi
 
 
 alias g='git status'
+alias gpr='git pull --rebase'
 
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
