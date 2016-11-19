@@ -117,6 +117,7 @@ alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
 
 alias cdw='cd ~/workspaces'
+alias cdm='cd ~/workspaces/mule'
 alias cdt='cd ~/tools'
 alias gemspec='vi *.gemspec'
 
@@ -128,10 +129,13 @@ alias surefire-grep='grep -H "Tests run" target/surefire-reports/*.txt | grep FA
 alias fails='vi target/surefire-reports/munit.*'
 alias skip='mvn clean package -DskipMunitTests'
 
-alias air='cd ~/workspaces/mule/Airbnb'
-alias equus='cd ~/workspaces/mule/EquusPOC'
+alias air='cd ~/workspaces/mule/Airbnb; ls'
+alias equus='cd ~/workspaces/mule/EquusPOC; ls'
+alias iata='cd ~/workspaces/mule/iata; ls'
+alias dor='cd ~/workspaces/dor; ls'
 alias mcp='mvn clean package'
 alias mct='mvn clean test'
+alias incrementVersion='mvn build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion}-SNAPSHOT versions:commit'
 
 alias skipTests='mvn clean package -DskipTests'
 alias skipJustMunitTests='mvn clean package -DskipMunitTests'
