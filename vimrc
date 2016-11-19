@@ -3,6 +3,15 @@
 set nocompatible
 "set verbose=9
 
+" enable per-project configuration files and secure it
+set exrc
+set secure
+
+":nmap <F6> :w<CR>:!ruby %<CR>
+":nmap ,t :w\|:!ruby %<CR>
+:nmap ,t :w\|:!ruby %<CR>
+:nmap ,b :w\|:!bash %<CR>
+
 "colorscheme ir_black
 "colorscheme dim
 "colorscheme slate
