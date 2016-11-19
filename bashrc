@@ -143,6 +143,12 @@ alias runTests='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*
 alias oneTest='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
 alias singleTest='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
 
+function prettyXml {
+  echo $1
+  xmllint --format $1 > $1.a_longer_extension_to_ensure_unique
+  mv $1.a_longer_extension_to_ensure_unique $1
+}
+
 
 alias ssh-get-pub-from-private='ssh-keygen -y -f ~/.ssh/id_rsa'
 
