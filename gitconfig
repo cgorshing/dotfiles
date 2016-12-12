@@ -1,6 +1,9 @@
 [user]
   name = Chad Gorshing
   email = gorshing@gmail.com
+[branch]
+  autosetupmerge = always
+  autosetuprebase = always
 [apply]
   whitespace = nowarn
 [merge]
