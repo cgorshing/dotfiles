@@ -35,7 +35,7 @@ export PS1='\u:\w: \n$ '
 # shopt -s nocaseglob
 #
 # Make bash append rather than overwrite the history on disk
-# shopt -s histappend
+shopt -s histappend
 #
 # When changing directory small typos can be ignored by bash
 # for example, cd /vr/lgo/apaache would find /var/log/apache
@@ -64,7 +64,7 @@ fi
 # History Options
 #
 # Don't put duplicate lines in the history.
-# export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 #
 # Ignore some controlling instructions
 # HISTIGNORE is a colon-delimited list of patterns which should be excluded.
@@ -73,7 +73,9 @@ fi
 # export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls' # Ignore the ls command as well
 #
 # Whenever displaying the prompt, write the previous line to disk
-# export PROMPT_COMMAND="history -a"
+export PROMPT_COMMAND="history -a"
+export HISTSIZE=100000
+export HISTFILESIZE=100000
 
 
 export EDITOR=vim
