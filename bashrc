@@ -151,6 +151,12 @@ function prettyXml {
   mv $1.a_longer_extension_to_ensure_unique $1
 }
 
+function time-entries {
+echo bash toggl.sh add '.... message goes here ....' @ProjectName 2016-11-04 d9:15
+echo bash toggl.sh add '.... message goes here ....' @ProjectName 2016-11-03T18:30 2016-11-03T20:30
+}
+
+PATH=$PATH:/Users/cgorshing/tools/toggl-cli
 
 alias ssh-get-pub-from-private='ssh-keygen -y -f ~/.ssh/id_rsa'
 
