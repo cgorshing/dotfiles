@@ -145,6 +145,8 @@ alias runTests='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*
 alias oneTest='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
 alias singleTest='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
 
+alias directorySize='du -hcs '
+
 function prettyXml {
   echo $1
   xmllint --format $1 > $1.a_longer_extension_to_ensure_unique
