@@ -1,0 +1,14 @@
+{
+  "font_size": 14,
+
+  "spell_check": true,
+
+  "ignored_packages":
+  [
+    "Vintage"
+  ],
+
+  "Jekyll": {
+    "jekyll_posts_path": "/Users/cgorshing/workspaces/writing_to_myself/_posts"
+  }
+}
