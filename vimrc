@@ -16,7 +16,7 @@ set secure
 "colorscheme dim
 "colorscheme slate
 "colorscheme Tomorrow-Night
-colorscheme grb256
+"colorscheme grb256
 "colorscheme obsidian2
 
 "This is from a vim.org tip to help break people from the habit of hitting
