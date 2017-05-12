@@ -262,7 +262,11 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 export GREP_OPTIONS="--binary-files=without-match --color=auto --devices=skip --exclude-dir=CVS --exclude-dir=.libs --exclude-dir=.deps --exclude-dir=.svn"
 
-export PS1='\u:\w: \n$ '
+#export PS1='\u:\w: \n$ '
+#export PS1='[\u:\w$(__git_ps1 " (%s)")]\n\$ '
+export PS1='\u:\w$(__git_ps1 " (%s)")\n\$ '
+
+
 
 export MAVEN_OPTS=-Xmx512m
 export JAVA_HOME=$(/usr/libexec/java_home)
