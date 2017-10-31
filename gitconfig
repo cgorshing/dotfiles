@@ -1,22 +1,13 @@
 [user]
-  name = Chad Gorshing
-  email = gorshing@gmail.com
+	name = Chad Gorshing
+	email = gorshing@gmail.com
 [branch]
   autosetupmerge = always
   autosetuprebase = always
 [apply]
   whitespace = nowarn
-[merge]
-  tool = bc3
-[mergetool]
-  bc3 = trustExitCode
-[diff]
-  tool = bc3
-  compactionHeuristic = true
-[difftool]
-  bc3 = trustExitCode
 [core]
-  excludesfile = /Users/cgorshing/.gitignore_global
+	excludesfile = /Users/cgorshing/.gitignore_global
   autocrlf = false
   safecrlf = true
 [alias]
@@ -40,12 +31,11 @@
   auto = 1
 [push]
   default = simple
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+[commit]
+	template = /Users/cgorshing/.stCommitMsg
+[diff]
+	tool = bc3
+[merge]
+	tool = bc3
+[mergetool "bc3"]
 	trustExitCode = true
-[mergetool "diffmerge"]
-  trustExitCode = true
-  cmd = /usr/local/bin/diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"

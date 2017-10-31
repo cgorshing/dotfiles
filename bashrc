@@ -18,7 +18,7 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-#echo 'In .bashrc'
+echo 'In .bashrc'
 
 export PS1='\u:\w: \n$ '
 # Shell Options
@@ -120,6 +120,8 @@ alias l='ls -CF'                              #
 
 alias cdw='cd ~/workspaces'
 alias cdm='cd ~/workspaces/mule'
+alias cde='cd ~/workspaces/elixir'
+alias cdp='cd ~/workspaces/phoenix'
 alias cdt='cd ~/tools'
 alias gemspec='vi *.gemspec'
 
@@ -141,9 +143,23 @@ alias incrementVersion='mvn build-helper:parse-version versions:set -DnewVersion
 
 alias skipTests='mvn clean package -DskipTests'
 alias skipJustMunitTests='mvn clean package -DskipMunitTests'
-alias runTests='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
-alias oneTest='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
-alias singleTest='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
+alias how-runTests='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
+alias how-oneTest='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
+alias how-singleTest='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
+alias how-remove-quarantine='echo xattr -r -d com.apple.quarantine *'
+alias how-checkout-remote-branch='echo git checkout --track origin/feature/daves_branch'
+function how-jq() {
+echo "grep -o 'flow=startProjectProcess action=started payload={.*}' 58ef9d72e4b00ff95c918a8c.594d33d8e4b08a891f4462ff-0.log  | grep -o {.*}  | jq -c '. | select(.projectSfdcId | contains(\"a27c0000005ROfDAAW\"))'"
+}
+
+
+alias make-test-jar='mvn clean org.apache.maven.plugins:maven-jar-plugin:test-jar'
+
+
+
+alias test-ping='ping 8.8.8.8'
+
+alias how-gitDeleteCommit='echo git reset --hard HEAD^ '
 
 alias directorySize='du -hcs '
 
@@ -166,7 +182,19 @@ set -o vi
 
 
 alias g='git status'
+alias t='tig'
 alias gpr='git pull --rebase'
+
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias go='git checkout '
+alias gk='gitk --all&'
+alias gx='gitx --all'
+
+alias got='git '
+alias get='git '
 
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -269,7 +297,8 @@ export PS1='\u:\w$(__git_ps1 " (%s)")\n\$ '
 
 
 export MAVEN_OPTS=-Xmx512m
-export JAVA_HOME=$(/usr/libexec/java_home)
+
+export LIQUIBASE_HOME=/usr/local/opt/liquibase/libexec
 
 get_script_dir () {
      SOURCE="${BASH_SOURCE[0]}"
@@ -291,6 +320,22 @@ export NVM_DIR="/Users/cgorshing/.nvm"
 
 export PATH=$PATH:/Users/cgorshing/tools/terraform_0.6.16_darwin_amd64
 export PATH=$PATH:/Users/cgorshing/bin
+export PATH=$PATH:/Users/cgorshing/tools/apache-maven-3.5.0/bin
+export GRADLE_HOME=/Users/cgorshing/tools/gradle-4.1-rc-1
+export GROOVY_HOME=/Users/cgorshing/tools/groovy-2.4.12
+export PATH=$PATH:$GRADLE_HOME/bin:$GROOVY_HOME/bin
+
+#Open files with:
+#$ ij foo
+alias ij='open -b com.jetbrains.intellij'
+alias sl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+alias sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+
+alias java8="export JAVA_HOME=`/usr/libexec/java_home -v1.8*`"
+alias java9="export JAVA_HOME=`/usr/libexec/java_home -v 9*`"
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8*`
+#export JAVA_HOME=$(/usr/libexec/java_home)
 
 #export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 launchctl setenv PATH $PATH
