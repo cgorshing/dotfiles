@@ -6,13 +6,38 @@
 		"jekyll_templates_path": "/Users/cgorshing/workspaces/writing_to_myself/_templates",
 		"jekyll_uploads_path": "/Users/cgorshing/workspaces/writing_to_myself/uploads"
 	},
+	"caret_style": "solid",
+	"color_scheme": "Packages/Predawn/predawn.tmTheme",
+	"fade_fold_buttons": false,
 	"font_size": 18,
+	"highlight_line": true,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
 	"open_files_in_new_window": false,
+	"predawn_findreplace_small": false,
+	"predawn_quick_panel_small": false,
+	"predawn_sidebar_arrows": false,
+	"predawn_sidebar_large": false,
+	"predawn_sidebar_medium": false,
+	"predawn_sidebar_narrow": false,
+	"predawn_sidebar_small": true,
+	"predawn_sidebar_xlarge": false,
+	"predawn_sidebar_xsmall": false,
+	"predawn_tabs_active_underline": true,
+	"predawn_tabs_large": false,
+	"predawn_tabs_medium": false,
+	"predawn_tabs_small": true,
+	"rulers":
+	[
+		80,
+		120
+	],
 	"save_on_focus_lost": true,
 	"spell_check": true,
+	"theme": "predawn-DEV.sublime-theme",
+	"theme1": "predawn.sublime-theme",
+	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }
