@@ -331,11 +331,15 @@ alias ij='open -b com.jetbrains.intellij'
 alias sl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
+alias jenkins-stop='sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist'
+alias jenkins-start='sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist'
 
 alias java8="export JAVA_HOME=`/usr/libexec/java_home -v1.8*`"
 alias java9="export JAVA_HOME=`/usr/libexec/java_home -v 9*`"
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8*`
 #export JAVA_HOME=$(/usr/libexec/java_home)
+
+export PATH=$PATH:/usr/local/sbin
 
 #export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 launchctl setenv PATH $PATH
