@@ -1,5 +1,13 @@
 "source $VIM/_vimrc
 
+execute pathogen#infect()
+
+autocmd vimenter * NERDTree
+
+let g:NERDTreeWinSize=41
+
+"set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 set nocompatible
 "set verbose=9
 
@@ -11,6 +19,8 @@ set secure
 ":nmap ,t :w\|:!ruby %<CR>
 :nmap ,t :w\|:!ruby %<CR>
 :nmap ,b :w\|:!bash %<CR>
+:nmap ,ne :NERDTree<CR> " https://stackoverflow.com/questions/6467634/create-a-command-shortcut-for-nerdtree-in-vim-editor
+" :command NE NERDTree
 
 "colorscheme ir_black
 "colorscheme dim
