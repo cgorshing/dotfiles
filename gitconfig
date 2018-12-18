@@ -1,13 +1,13 @@
 [user]
-	name = Chad Gorshing
-	email = gorshing@gmail.com
+  name = Chad Gorshing
+  email = gorshing@gmail.com
 [branch]
   autosetupmerge = always
   autosetuprebase = always
 [apply]
   whitespace = nowarn
 [core]
-	excludesfile = /Users/cgorshing/.gitignore_global
+  excludesfile = /Users/cgorshing/.gitignore_global
   autocrlf = false
   safecrlf = true
 [alias]
@@ -32,10 +32,10 @@
 [push]
   default = simple
 [commit]
-	template = /Users/cgorshing/.stCommitMsg
+  template = /Users/cgorshing/.stCommitMsg
 [diff]
-	tool = bc3
+  tool = bc3
 [merge]
-	tool = bc3
+  tool = bc3
 [mergetool "bc3"]
-	trustExitCode = true
+  trustExitCode = true
