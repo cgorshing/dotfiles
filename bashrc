@@ -131,11 +131,12 @@ alias depAnalyze='mvn dependency:analyze'
 alias depTree='mvn dependency:tree > depTree'
 alias surefire-grep='grep -H "Tests run" target/surefire-reports/*.txt | grep FAILURE'
 alias fails='vi target/surefire-reports/munit.*'
-alias skip='mvn clean package -DskipMunitTests'
+function skipTests() {
+  mvn clean package -DskipMunitTests "$@"
+}
+export -f skipTests
 
-alias air='cd ~/workspaces/mule/Airbnb; ls'
-alias equus='cd ~/workspaces/mule/EquusPOC; ls'
-alias iata='cd ~/workspaces/mule/iata; ls'
+
 alias dor='cd ~/workspaces/dor; ls'
 alias mcp='mvn clean package'
 alias mct='mvn clean test'
@@ -148,13 +149,17 @@ alias how-oneTest='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-
 alias how-singleTest='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
 alias how-remove-quarantine='echo xattr -r -d com.apple.quarantine *'
 alias how-checkout-remote-branch='echo git checkout --track origin/feature/daves_branch'
+alias how-git-list-tags="git for-each-ref --format='%(if)%(committerdate)%(then)%(committerdate)%(else)%(*committerdate)%(end) %(refname:lstrip=2)' refs/tags/*"
 function how-jq() {
 echo "grep -o 'flow=startProjectProcess action=started payload={.*}' 58ef9d72e4b00ff95c918a8c.594d33d8e4b08a891f4462ff-0.log  | grep -o {.*}  | jq -c '. | select(.projectSfdcId | contains(\"a27c0000005ROfDAAW\"))'"
 }
 
+alias how-restore-postgres='psql -d gens_dev -f gens-db-20180131-2043.bkup'
 
 alias make-test-jar='mvn clean org.apache.maven.plugins:maven-jar-plugin:test-jar'
 
+alias how-start-splunk='/Applications/Splunk/bin/splunk start'
+alias start-splunk='/Applications/Splunk/bin/splunk start'
 
 
 alias test-ping='ping 8.8.8.8'
@@ -176,12 +181,13 @@ echo bash toggl.sh add '.... message goes here ....' @ProjectName 2016-11-03T18:
 
 PATH=$PATH:/Users/cgorshing/tools/toggl-cli
 
-alias ssh-get-pub-from-private='ssh-keygen -y -f ~/.ssh/id_rsa'
+alias how-ssh-get-pub-from-private='ssh-keygen -y -f ~/.ssh/id_rsa'
 
 set -o vi
 
 
 alias g='git status'
+#alias gti='(afplay -v 100 ~/Downloads/engine.wav &); git'
 alias t='tig'
 alias gpr='git pull --rebase'
 
@@ -296,6 +302,7 @@ export PS1='\u:\w$(__git_ps1 " (%s)")\n\$ '
 
 
 
+
 export MAVEN_OPTS=-Xmx512m
 
 export LIQUIBASE_HOME=/usr/local/opt/liquibase/libexec
@@ -331,6 +338,8 @@ alias ij='open -b com.jetbrains.intellij'
 alias sl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
+alias dls='docker container ls'
+
 alias jenkins-stop='sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist'
 alias jenkins-start='sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist'
 
@@ -344,5 +353,9 @@ export PATH=$PATH:/usr/local/sbin
 #export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 launchctl setenv PATH $PATH
 
+#XDG-spec
+#https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+echo 'Done with bashrc'
