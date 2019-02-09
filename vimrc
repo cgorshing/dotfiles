@@ -20,6 +20,7 @@ set secure
 ":nmap <F6> :w<CR>:!ruby %<CR>
 ":nmap ,t :w\|:!ruby %<CR>
 :nmap ,t :w\|:!ruby %<CR>
+:nmap ,t :w\|:!groovy %<CR>
 :nmap ,b :w\|:!bash %<CR>
 :nmap ,ne :NERDTree<CR> " https://stackoverflow.com/questions/6467634/create-a-command-shortcut-for-nerdtree-in-vim-editor
 " :command NE NERDTree
