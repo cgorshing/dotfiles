@@ -328,7 +328,7 @@ export NVM_DIR="/Users/cgorshing/.nvm"
 export PATH=$PATH:/Users/cgorshing/tools/terraform_0.6.16_darwin_amd64
 export PATH=$PATH:/Users/cgorshing/bin
 export PATH=$PATH:/Users/cgorshing/tools/apache-maven-3.5.0/bin
-export GRADLE_HOME=/Users/cgorshing/tools/gradle-4.1-rc-1
+export GRADLE_HOME=/Users/cgorshing/tools/gradle-5.1.1
 export GROOVY_HOME=/Users/cgorshing/tools/groovy-2.4.12
 export PATH=$PATH:$GRADLE_HOME/bin:$GROOVY_HOME/bin
 
@@ -345,7 +345,8 @@ alias jenkins-start='sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.p
 
 alias java8="export JAVA_HOME=`/usr/libexec/java_home -v1.8*`"
 alias java9="export JAVA_HOME=`/usr/libexec/java_home -v 9*`"
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8*`
+alias java11="export JAVA_HOME=`/usr/libexec/java_home -v 11*`"
+export JAVA_HOME=`/usr/libexec/java_home -v 11*`
 #export JAVA_HOME=$(/usr/libexec/java_home)
 
 export PATH=$PATH:/usr/local/sbin
