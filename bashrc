@@ -363,6 +363,10 @@ function turnOnRVM() {
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 }
 
+function update-brew() {
+  brew update && brew upgrade && brew cleanup && brew cleanup --prune-prefix && echo 'Not doing "brew prune" anymore - cause it is deprecated'
+}
+
 function turnOnASDF() {
   . $HOME/.asdf/asdf.sh
   . $HOME/.asdf/completions/asdf.bash
