@@ -61,6 +61,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
+
 # History Options
 #
 # Don't put duplicate lines in the history.
@@ -203,11 +204,6 @@ alias got='git '
 alias get='git '
 
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
-
-
 # Umask
 #
 # /etc/profile sets 022, removing write perms to group + others.
@@ -322,8 +318,13 @@ get_script_dir () {
 [[ -f $(get_script_dir)/clientrc ]] && . $(get_script_dir)/clientrc
 #[[ -f ./clientrc ]] && . ./clientrc
 
-export NVM_DIR="/Users/cgorshing/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+echo 'Many things have been turned off that mainly are not used or needed'
+echo 'rvm, nvm, chef'
+echo 'Try turnOn<Tab><Tab> to see options'
+function turnOnNVM() {
+  export NVM_DIR="/Users/cgorshing/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+}
 
 export PATH=$PATH:/Users/cgorshing/tools/terraform_0.6.16_darwin_amd64
 export PATH=$PATH:/Users/cgorshing/bin
@@ -357,6 +358,13 @@ launchctl setenv PATH $PATH
 #XDG-spec
 #https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+function turnOnRVM() {
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+}
+
+function turnOnASDF() {
+  . $HOME/.asdf/asdf.sh
+  . $HOME/.asdf/completions/asdf.bash
+}
 
 echo 'Done with bashrc'
