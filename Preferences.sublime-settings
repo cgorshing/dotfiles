@@ -6,6 +6,10 @@
 		"jekyll_templates_path": "/Users/cgorshing/workspaces/writing_to_myself/_templates",
 		"jekyll_uploads_path": "/Users/cgorshing/workspaces/writing_to_myself/uploads"
 	},
+	"added_words":
+	[
+		"Heroku"
+	],
 	"caret_style": "solid",
 	"color_scheme": "Packages/Predawn/predawn.tmTheme",
 	"fade_fold_buttons": false,
