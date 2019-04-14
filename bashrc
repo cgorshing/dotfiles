@@ -187,6 +187,7 @@ alias how-ssh-get-pub-from-private='ssh-keygen -y -f ~/.ssh/id_rsa'
 set -o vi
 
 
+alias grd='./gradlew'
 alias g='git status'
 #alias gti='(afplay -v 100 ~/Downloads/engine.wav &); git'
 alias t='tig'
@@ -329,7 +330,7 @@ function turnOnNVM() {
 export PATH=$PATH:/Users/cgorshing/tools/terraform_0.6.16_darwin_amd64
 export PATH=$PATH:/Users/cgorshing/bin
 export PATH=$PATH:/Users/cgorshing/tools/apache-maven-3.5.0/bin
-export GRADLE_HOME=/Users/cgorshing/tools/gradle-5.1.1
+export GRADLE_HOME=/Users/cgorshing/tools/gradle-5.2.1
 export GROOVY_HOME=/Users/cgorshing/tools/groovy-2.4.12
 export PATH=$PATH:$GRADLE_HOME/bin:$GROOVY_HOME/bin
 
