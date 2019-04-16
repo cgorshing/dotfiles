@@ -18,8 +18,6 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-echo 'In .bashrc'
-
 export PS1='\u:\w: \n$ '
 # Shell Options
 #
@@ -364,7 +362,21 @@ function turnOnRVM() {
 }
 
 function update-brew() {
-  brew update && brew upgrade && brew cleanup && brew cleanup --prune-prefix && echo 'Not doing "brew prune" anymore - cause it is deprecated'
+  brew update && brew upgrade && brew cleanup && brew cleanup --prune-prefix
+  # echo 'Not doing "brew prune" anymore - cause it is deprecated'
+}
+
+function update-upstream() {
+  git fetch upstream
+  git checkout master
+  git merge upstream/master
+}
+
+function update-git() {
+  for D in *
+  do
+    [ -d "${D}/.git" ] && echo -n "$D " && git -C "$D" pull --rebase
+  done
 }
 
 function turnOnASDF() {
@@ -372,4 +384,3 @@ function turnOnASDF() {
   . $HOME/.asdf/completions/asdf.bash
 }
 
-echo 'Done with bashrc'
