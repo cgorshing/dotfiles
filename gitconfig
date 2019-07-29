@@ -1,6 +1,7 @@
 [user]
   name = Chad Gorshing
   email = gorshing@gmail.com
+  signingkey = 334B0E60
 [branch]
   autosetupmerge = always
   autosetuprebase = always
@@ -52,3 +53,5 @@
   tool = bc3
 [mergetool "bc3"]
   trustExitCode = true
+[gpg]
+  program = /usr/local/bin/gpg
