@@ -293,9 +293,8 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 alias grep="grep --binary-files=without-match --color=auto --devices=skip --exclude-dir=CVS --exclude-dir=.libs --exclude-dir=.deps --exclude-dir=.svn"
 
-#export PS1='\u:\w: \n$ '
 #export PS1='[\u:\w$(__git_ps1 " (%s)")]\n\$ '
-export PS1='\u:\w$(__git_ps1 " (%s)")\n\$ '
+#export PS1='\u:\w$(__git_ps1 " (%s)")\n\$ '
 
 
 
@@ -319,9 +318,6 @@ get_script_dir () {
 [[ -f $(get_script_dir)/clientrc ]] && . $(get_script_dir)/clientrc
 #[[ -f ./clientrc ]] && . ./clientrc
 
-echo 'Many things have been turned off that mainly are not used or needed'
-echo 'rvm, nvm, chef'
-echo 'Try turnOn<Tab><Tab> to see options'
 function turnOnNVM() {
   export NVM_DIR="/Users/cgorshing/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
