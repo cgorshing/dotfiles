@@ -344,13 +344,29 @@ alias jenkins-start='sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.p
 alias java8="export JAVA_HOME=`/usr/libexec/java_home -v1.8*`"
 alias java9="export JAVA_HOME=`/usr/libexec/java_home -v 9*`"
 alias java11="export JAVA_HOME=`/usr/libexec/java_home -v 11*`"
-export JAVA_HOME=`/usr/libexec/java_home -v 11*`
+export JAVA_HOME=`/usr/libexec/java_home -v1.8*`
 #export JAVA_HOME=$(/usr/libexec/java_home)
 
-export PATH=$PATH:/usr/local/sbin
+# gnubin is for gnu packages (like gnu-sed/gsed)
+export PATH=/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH:/usr/local/sbin
+
+# From https://gist.github.com/textarcana/4611277
+export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+# From https://gist.github.com/karolyi/ad020e676e989678d16e
+#export LESSOPEN='| /usr/local/etc/source-highlight-esc.sh %s'
+
+export LESS=" -R -M --shift 5 -S "
+#export LESS=-FMRXis
+
+# per https://github.com/pstadler/keybase-gpg-github
+export GPG_TTY=$(tty)
 
 #export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
-launchctl setenv PATH $PATH
+command -v launchctl > /dev/null || launchctl setenv PATH $PATH
+# Add tab completion for many Bash commands
+#if which launchctl &> /dev/null ; then
+  #launchctl setenv PATH $PATH
+#fi;
 
 #XDG-spec
 #https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
