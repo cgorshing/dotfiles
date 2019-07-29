@@ -291,7 +291,7 @@ alias gb='./gradlew build'
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
-export GREP_OPTIONS="--binary-files=without-match --color=auto --devices=skip --exclude-dir=CVS --exclude-dir=.libs --exclude-dir=.deps --exclude-dir=.svn"
+alias grep="grep --binary-files=without-match --color=auto --devices=skip --exclude-dir=CVS --exclude-dir=.libs --exclude-dir=.deps --exclude-dir=.svn"
 
 #export PS1='\u:\w: \n$ '
 #export PS1='[\u:\w$(__git_ps1 " (%s)")]\n\$ '
