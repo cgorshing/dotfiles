@@ -192,16 +192,17 @@ alias t='tig'
 alias gpr='git pull --rebase'
 
 alias ga='git add '
-alias gb='git branch '
+#alias gb='git branch '
 alias gc='git commit'
 alias gd='git diff'
-alias go='git checkout '
 alias gk='gitk --all&'
 alias gx='gitx --all'
 
 alias got='git '
 alias get='git '
 
+alias gt='./gradlew tasks'
+alias gb='./gradlew build'
 
 # Umask
 #
