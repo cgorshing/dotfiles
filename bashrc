@@ -390,3 +390,7 @@ function turnOnASDF() {
   . $HOME/.asdf/completions/asdf.bash
 }
 
+function turnOnAutojump() {
+  [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+}
+
