@@ -149,6 +149,7 @@ alias how-singleTest='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenar
 alias how-remove-quarantine='echo xattr -r -d com.apple.quarantine *'
 alias how-checkout-remote-branch='echo git checkout --track origin/feature/daves_branch'
 alias how-git-list-tags="git for-each-ref --format='%(if)%(committerdate)%(then)%(committerdate)%(else)%(*committerdate)%(end) %(refname:lstrip=2)' refs/tags/*"
+alias how-pandoc="echo pandoc test1.md -s -o test1.pdf"
 function how-jq() {
 echo "grep -o 'flow=startProjectProcess action=started payload={.*}' 58ef9d72e4b00ff95c918a8c.594d33d8e4b08a891f4462ff-0.log  | grep -o {.*}  | jq -c '. | select(.projectSfdcId | contains(\"a27c0000005ROfDAAW\"))'"
 }
