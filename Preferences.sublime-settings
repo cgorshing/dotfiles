@@ -1,14 +1,15 @@
 {
 	"Jekyll":
 	{
-		"jekyll_drafts_path": "/Users/cgorshing/workspaces/writing_to_myself/_drafts",
-		"jekyll_posts_path": "/Users/cgorshing/workspaces/writing_to_myself/_posts",
-		"jekyll_templates_path": "/Users/cgorshing/workspaces/writing_to_myself/_templates",
-		"jekyll_uploads_path": "/Users/cgorshing/workspaces/writing_to_myself/uploads"
+		"jekyll_drafts_path": "/Users/cgorshing/workspaces/gorshing.net/_drafts",
+		"jekyll_posts_path": "/Users/cgorshing/workspaces/gorshing.net/_posts",
+		"jekyll_templates_path": "/Users/cgorshing/workspaces/gorshing.net/_templates",
+		"jekyll_uploads_path": "/Users/cgorshing/workspaces/gorshing.net/uploads"
 	},
 	"added_words":
 	[
-		"Heroku"
+		"Heroku",
+		"Gorshing"
 	],
 	"caret_style": "solid",
 	"color_scheme": "Packages/Predawn/predawn.tmTheme",
