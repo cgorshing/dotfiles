@@ -380,6 +380,11 @@ function update-git() {
   done
 }
 
+function update-gems() {
+  bundle lock --update
+  bundle install
+}
+
 function turnOnASDF() {
   . $HOME/.asdf/asdf.sh
   . $HOME/.asdf/completions/asdf.bash
