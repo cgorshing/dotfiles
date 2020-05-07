@@ -55,9 +55,16 @@ shopt -s histappend
 # Uncomment to turn on programmable completion enhancements.
 # Any completions you add in ~/.bash_completion are sourced last.
 #[[ -f /etc/bash_completion ]] && . /etc/bash_completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
+#if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  #. $(brew --prefix)/etc/bash_completion
+#fi
+
+echo "Looks like bash completion is funky - What am I doing here?"
+# Add the following to your ~/.bash_profile:
+  [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+# If you'd like to use existing homebrew v1 completions, add the following before the previous line:
+  export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 
 
 # History Options
