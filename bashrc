@@ -378,7 +378,7 @@ function turnOnRVM() {
 }
 
 function update-brew() {
-  brew update && brew upgrade && brew cleanup && brew cleanup --prune-prefix
+  brew update && brew upgrade && echo 'Now sleeping....' && sleep 1 && echo 'brew cleanup:' && brew cleanup && echo 'sleeping again....' && sleep 1 && echo 'brew cleanup --prune-prefix' && brew cleanup --prune-prefix
   # echo 'Not doing "brew prune" anymore - cause it is deprecated'
 }
 
