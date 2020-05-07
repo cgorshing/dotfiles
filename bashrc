@@ -347,6 +347,8 @@ alias java11="export JAVA_HOME=`/usr/libexec/java_home -v 11*`"
 export JAVA_HOME=`/usr/libexec/java_home -v1.8*`
 #export JAVA_HOME=$(/usr/libexec/java_home)
 
+alias please='sudo $(fc -ln -1)'
+
 # gnubin is for gnu packages (like gnu-sed/gsed)
 export PATH=/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH:/usr/local/sbin
 
