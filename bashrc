@@ -410,6 +410,10 @@ function cleanup-docker() {
   docker volume prune
 }
 
+function compress-image() {
+  convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85% $1 "${1%.jpg}-compressed.jpg"
+}
+
 function turnOnAutojump() {
   [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 }
