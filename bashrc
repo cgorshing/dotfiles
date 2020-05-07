@@ -418,3 +418,10 @@ function turnOnAutojump() {
   [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 }
 
+function sound-good() {
+  afplay ~/workspaces/livestream-jamesshore/build/sounds/success.mp3
+}
+function sound-bad() {
+  #afplay ~/workspaces/livestream-jamesshore/build/sounds/lint_error.mp3
+  afplay ~/workspaces/livestream-jamesshore/build/sounds/fail.m4a
+}
