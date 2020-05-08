@@ -1,1 +1,85 @@
 #!/usr/bin/env bash
+
+source ~/workspaces/dotfiles-1/.functions
+
+# Remove ones I don't use/want
+unset tre;
+unset getcertnames;
+unset digga;
+unset gz;
+unset phpserver;
+unset targz;
+unset cdf;
+
+function turnOnCHEF() {
+  eval "$(chef shell-init bash)"
+}
+
+function turnOnNVM() {
+  export NVM_DIR="/Users/cgorshing/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+}
+
+function skipTests() {
+  mvn clean package -DskipMunitTests "$@"
+}
+#export -f skipTests
+
+function prettyXml {
+  echo $1
+  xmllint --format $1 > $1.a_longer_extension_to_ensure_unique
+  mv $1.a_longer_extension_to_ensure_unique $1
+}
+
+function turnOnRVM() {
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+}
+
+function update-brew() {
+  brew update && brew upgrade && echo 'Now sleeping....' && sleep 1 && echo 'brew cleanup:' && brew cleanup && echo 'sleeping again....' && sleep 1 && echo 'brew cleanup --prune-prefix' && brew cleanup --prune-prefix
+  # echo 'Not doing "brew prune" anymore - cause it is deprecated'
+}
+
+function update-upstream() {
+  git fetch upstream
+  git checkout master
+  git merge upstream/master
+}
+
+function update-git() {
+  for D in *
+  do
+    [ -d "${D}/.git" ] && echo -n "$D " && git -C "$D" pull --rebase
+  done
+}
+
+function update-gems() {
+  bundle lock --update
+  bundle install
+}
+
+function turnOnASDF() {
+  . $HOME/.asdf/asdf.sh
+  . $HOME/.asdf/completions/asdf.bash
+}
+
+function cleanup-docker() {
+  docker system prune -a
+  docker volume prune
+}
+
+function compress-image() {
+  convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85% $1 "${1%.jpg}-compressed.jpg"
+}
+
+function turnOnAutojump() {
+  [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+}
+
+function sound-good() {
+  afplay ~/workspaces/livestream-jamesshore/build/sounds/success.mp3
+}
+function sound-bad() {
+  #afplay ~/workspaces/livestream-jamesshore/build/sounds/lint_error.mp3
+  afplay ~/workspaces/livestream-jamesshore/build/sounds/fail.m4a
+}
