@@ -18,7 +18,6 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-export PS1='\u:\w: \n$ '
 # Shell Options
 #
 # See man bash for more options...
@@ -124,93 +123,9 @@ alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
 
-alias cdw='cd ~/workspaces'
-alias cdm='cd ~/workspaces/mule'
-alias cde='cd ~/workspaces/elixir'
-alias cdp='cd ~/workspaces/phoenix'
-alias cdt='cd ~/tools'
-alias gemspec='vi *.gemspec'
-
-alias lsr='ls -lrt'
-alias cdi='cd /cygdrive/c/Users/cgorshing/.IntelliJIdea10/system/tomcat'
-alias depAnalyze='mvn dependency:analyze'
-alias depTree='mvn dependency:tree > depTree'
-alias surefire-grep='grep -H "Tests run" target/surefire-reports/*.txt | grep FAILURE'
-alias fails='vi target/surefire-reports/munit.*'
-function skipTests() {
-  mvn clean package -DskipMunitTests "$@"
-}
-export -f skipTests
-
-
-alias dor='cd ~/workspaces/dor; ls'
-alias mcp='mvn clean package'
-alias mct='mvn clean test'
-alias incrementVersion='mvn build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion}-SNAPSHOT versions:commit'
-
-alias skipTests='mvn clean package -DskipTests'
-alias skipJustMunitTests='mvn clean package -DskipMunitTests'
-alias how-runTests='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
-alias how-oneTest='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
-alias how-singleTest='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenario-1.*'
-alias how-remove-quarantine='echo xattr -r -d com.apple.quarantine *'
-alias how-checkout-remote-branch='echo git checkout --track origin/feature/daves_branch'
-alias how-git-list-tags="git for-each-ref --format='%(if)%(committerdate)%(then)%(committerdate)%(else)%(*committerdate)%(end) %(refname:lstrip=2)' refs/tags/*"
-alias how-pandoc="echo pandoc test1.md -s -o test1.pdf"
-function how-jq() {
-echo "grep -o 'flow=startProjectProcess action=started payload={.*}' 58ef9d72e4b00ff95c918a8c.594d33d8e4b08a891f4462ff-0.log  | grep -o {.*}  | jq -c '. | select(.projectSfdcId | contains(\"a27c0000005ROfDAAW\"))'"
-}
-
-alias how-restore-postgres='psql -d gens_dev -f gens-db-20180131-2043.bkup'
-
-alias make-test-jar='mvn clean org.apache.maven.plugins:maven-jar-plugin:test-jar'
-
-alias how-start-splunk='/Applications/Splunk/bin/splunk start'
-alias start-splunk='/Applications/Splunk/bin/splunk start'
-
-
-alias test-ping='ping 8.8.8.8'
-
-alias how-gitDeleteCommit='echo git reset --hard HEAD^ '
-
-alias directorySize='du -hcs '
-
-function prettyXml {
-  echo $1
-  xmllint --format $1 > $1.a_longer_extension_to_ensure_unique
-  mv $1.a_longer_extension_to_ensure_unique $1
-}
-
-function time-entries {
-echo bash toggl.sh add '.... message goes here ....' @ProjectName 2016-11-04 d9:15
-echo bash toggl.sh add '.... message goes here ....' @ProjectName 2016-11-03T18:30 2016-11-03T20:30
-}
-
-PATH=$PATH:/Users/cgorshing/tools/toggl-cli
-
-alias how-ssh-get-pub-from-private='ssh-keygen -y -f ~/.ssh/id_rsa'
 
 set -o vi
 
-
-alias grd='./gradlew'
-alias g='git status'
-#alias gti='(afplay -v 100 ~/Downloads/engine.wav &); git'
-alias t='tig'
-alias gpr='git pull --rebase'
-
-alias ga='git add '
-#alias gb='git branch '
-alias gc='git commit'
-alias gd='git diff'
-alias gk='gitk --all&'
-alias gx='gitx --all'
-
-alias got='git '
-alias get='git '
-
-alias gt='./gradlew tasks'
-alias gb='./gradlew build'
 
 # Umask
 #
@@ -295,20 +210,8 @@ alias gb='./gradlew build'
 #
 # alias cd=cd_func
 
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-
-alias grep="grep --binary-files=without-match --color=auto --devices=skip --exclude-dir=CVS --exclude-dir=.libs --exclude-dir=.deps --exclude-dir=.svn"
-
 #export PS1='[\u:\w$(__git_ps1 " (%s)")]\n\$ '
 #export PS1='\u:\w$(__git_ps1 " (%s)")\n\$ '
-
-
-
-
-export MAVEN_OPTS=-Xmx512m
-
-export LIQUIBASE_HOME=/usr/local/opt/liquibase/libexec
 
 get_script_dir () {
      SOURCE="${BASH_SOURCE[0]}"
@@ -325,50 +228,6 @@ get_script_dir () {
 [[ -f $(get_script_dir)/clientrc ]] && . $(get_script_dir)/clientrc
 #[[ -f ./clientrc ]] && . ./clientrc
 
-function turnOnNVM() {
-  export NVM_DIR="/Users/cgorshing/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-}
-
-export PATH=$PATH:/Users/cgorshing/tools/terraform_0.6.16_darwin_amd64
-export PATH=$PATH:/Users/cgorshing/bin
-export PATH=$PATH:/Users/cgorshing/tools/apache-maven-3.5.0/bin
-export GRADLE_HOME=/Users/cgorshing/tools/gradle-5.2.1
-export GROOVY_HOME=/Users/cgorshing/tools/groovy-2.4.12
-export PATH=$PATH:$GRADLE_HOME/bin:$GROOVY_HOME/bin
-
-#Open files with:
-#$ ij foo
-alias ij='open -b com.jetbrains.intellij'
-alias sl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-alias sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-
-alias dls='docker container ls'
-
-alias jenkins-stop='sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist'
-alias jenkins-start='sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist'
-
-alias java8="export JAVA_HOME=`/usr/libexec/java_home -v1.8*`"
-alias java9="export JAVA_HOME=`/usr/libexec/java_home -v 9*`"
-alias java11="export JAVA_HOME=`/usr/libexec/java_home -v 11*`"
-export JAVA_HOME=`/usr/libexec/java_home -v1.8*`
-#export JAVA_HOME=$(/usr/libexec/java_home)
-
-alias please='sudo $(fc -ln -1)'
-
-# gnubin is for gnu packages (like gnu-sed/gsed)
-export PATH=/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH:/usr/local/sbin
-
-# From https://gist.github.com/textarcana/4611277
-export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
-# From https://gist.github.com/karolyi/ad020e676e989678d16e
-#export LESSOPEN='| /usr/local/etc/source-highlight-esc.sh %s'
-
-export LESS=" -R -M --shift 5 -S "
-#export LESS=-FMRXis
-
-# per https://github.com/pstadler/keybase-gpg-github
-export GPG_TTY=$(tty)
 
 #export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 command -v launchctl > /dev/null || launchctl setenv PATH $PATH
@@ -379,57 +238,3 @@ command -v launchctl > /dev/null || launchctl setenv PATH $PATH
 
 #XDG-spec
 #https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
-
-function turnOnRVM() {
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-}
-
-function update-brew() {
-  brew update && brew upgrade && echo 'Now sleeping....' && sleep 1 && echo 'brew cleanup:' && brew cleanup && echo 'sleeping again....' && sleep 1 && echo 'brew cleanup --prune-prefix' && brew cleanup --prune-prefix
-  # echo 'Not doing "brew prune" anymore - cause it is deprecated'
-}
-
-function update-upstream() {
-  git fetch upstream
-  git checkout master
-  git merge upstream/master
-}
-
-function update-git() {
-  for D in *
-  do
-    [ -d "${D}/.git" ] && echo -n "$D " && git -C "$D" pull --rebase
-  done
-}
-
-function update-gems() {
-  bundle lock --update
-  bundle install
-}
-
-function turnOnASDF() {
-  . $HOME/.asdf/asdf.sh
-  . $HOME/.asdf/completions/asdf.bash
-}
-
-function cleanup-docker() {
-  docker system prune -a
-  docker volume prune
-}
-
-function compress-image() {
-  convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85% $1 "${1%.jpg}-compressed.jpg"
-}
-
-function turnOnAutojump() {
-  [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-}
-
-function sound-good() {
-  afplay ~/workspaces/livestream-jamesshore/build/sounds/success.mp3
-}
-function sound-bad() {
-  #afplay ~/workspaces/livestream-jamesshore/build/sounds/lint_error.mp3
-  afplay ~/workspaces/livestream-jamesshore/build/sounds/fail.m4a
-}
-
