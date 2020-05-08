@@ -1,1 +1,42 @@
 #!/usr/bin/env bash
+
+#source ~/workspaces/dotfiles-1/.exports
+
+# Remove ones I don't use/want
+#unset tre;
+
+PATH=$PATH:/Users/cgorshing/tools/toggl-cli
+
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
+export MAVEN_OPTS=-Xmx512m
+
+export LIQUIBASE_HOME=/usr/local/opt/liquibase/libexec
+
+export PATH=$PATH:/Users/cgorshing/tools/terraform_0.6.16_darwin_amd64
+export PATH=$PATH:/Users/cgorshing/bin
+export PATH=$PATH:/Users/cgorshing/tools/apache-maven-3.5.0/bin
+export GRADLE_HOME=/Users/cgorshing/tools/gradle-5.2.1
+export GROOVY_HOME=/Users/cgorshing/tools/groovy-2.4.12
+export PATH=$PATH:$GRADLE_HOME/bin:$GROOVY_HOME/bin
+
+
+# gnubin is for gnu packages (like gnu-sed/gsed)
+export PATH=/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH:/usr/local/sbin
+
+# From https://gist.github.com/textarcana/4611277
+export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+# From https://gist.github.com/karolyi/ad020e676e989678d16e
+#export LESSOPEN='| /usr/local/etc/source-highlight-esc.sh %s'
+
+export LESS=" -R -M --shift 5 -S "
+#export LESS=-FMRXis
+
+# per https://github.com/pstadler/keybase-gpg-github
+# Avoid issues with `gpg` as installed via Homebrew.
+# https://stackoverflow.com/a/42265848/96656
+export GPG_TTY=$(tty)
+
+export JAVA_HOME=`/usr/libexec/java_home -v1.8*`
+#export JAVA_HOME=$(/usr/libexec/java_home)
