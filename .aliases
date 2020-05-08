@@ -80,6 +80,8 @@ alias dls='docker container ls'
 alias jenkins-stop='sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist'
 alias jenkins-start='sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist'
 
+# I'm using asdf for a lot of these things of things.
+# TODO Should I remove these?
 alias java8="export JAVA_HOME=`/usr/libexec/java_home -v1.8*`"
 alias java9="export JAVA_HOME=`/usr/libexec/java_home -v 9*`"
 alias java11="export JAVA_HOME=`/usr/libexec/java_home -v 11*`"
