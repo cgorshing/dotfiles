@@ -13,7 +13,6 @@ alias cdt='cd ~/tools'
 alias gemspec='vi *.gemspec'
 
 alias lsr='ls -lrt'
-alias cdi='cd /cygdrive/c/Users/cgorshing/.IntelliJIdea10/system/tomcat'
 alias depAnalyze='mvn dependency:analyze'
 alias depTree='mvn dependency:tree > depTree'
 alias surefire-grep='grep -H "Tests run" target/surefire-reports/*.txt | grep FAILURE'
