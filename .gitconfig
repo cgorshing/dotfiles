@@ -16,22 +16,21 @@
   ci = commit
   st = status
   br = branch
+  d = diff
+  ss = status -s
+  st = status
+
   hist = log --pretty=format:'%h %ad | %s %d [%an]' --graph --date=short
   type = cat-file -t
   dump = cat-file -p
 
   pl = log --oneline --decorate --graph
   plall = log --oneline --decorate --all --graph
-  co = checkout
   ds = diff --staged
-  d = diff
   dwd = diff --word-diff
   dcw = diff --color-words
   dswd = diff --staged --word-diff
   dscw = diff --staged --color-words
-  ss = status -s
-  st = status
-  erdone = sh -c 'git fetch && git pull && git submodule update'
 [color]
   #ui = 1
   ui = auto
