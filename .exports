@@ -5,6 +5,12 @@
 # Remove ones I don't use/want
 #unset tre;
 
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+export PROMPT_COMMAND="history -a"
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+export EDITOR=vim
+
 PATH=$PATH:/Users/cgorshing/tools/toggl-cli
 
 export CLICOLOR=1
@@ -40,3 +46,5 @@ export GPG_TTY=$(tty)
 
 export JAVA_HOME=`/usr/libexec/java_home -v11.0.1`
 
+#export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+command -v launchctl > /dev/null || launchctl setenv PATH $PATH
