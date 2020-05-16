@@ -45,6 +45,3 @@ export LESS=" -R -M --shift 5 -S "
 export GPG_TTY=$(tty)
 
 export JAVA_HOME=`/usr/libexec/java_home -v11.0.1`
-
-#export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
-command -v launchctl > /dev/null || launchctl setenv PATH $PATH
