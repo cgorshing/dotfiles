@@ -5,6 +5,19 @@
 # Remove ones I don't use/want
 #unset tre;
 
+alias df='df -h'
+alias du='du -h'
+alias ls='ls -h'
+alias grep='grep --color'                     # show differences in colour
+alias egrep='egrep --color=auto'              # show differences in colour
+alias fgrep='fgrep --color=auto'              # show differences in colour
+
+alias ll='ls -l'                              # long list
+alias la='ls -A'                              # all but . and ..
+alias l='ls -CF'                              #
+
+set -o vi
+
 alias cdw='cd ~/workspaces'
 alias cdm='cd ~/workspaces/mule'
 alias cde='cd ~/workspaces/elixir'
@@ -51,8 +64,6 @@ alias how-ssh-get-pub-from-private='ssh-keygen -y -f ~/.ssh/id_rsa'
 
 alias grd='./gradlew'
 alias g='git status'
-#alias gti='(afplay -v 100 ~/Downloads/engine.wav &); git'
-alias t='tig'
 alias gpr='git pull --rebase'
 
 alias ga='git add '
@@ -79,8 +90,6 @@ alias dls='docker container ls'
 alias jenkins-stop='sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist'
 alias jenkins-start='sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist'
 
-# I'm using asdf for a lot of these things of things.
-# TODO Should I remove these?
 alias java8="export JAVA_HOME=`/usr/libexec/java_home -v1.8*`"
 alias java9="export JAVA_HOME=`/usr/libexec/java_home -v 9*`"
 alias java11="export JAVA_HOME=`/usr/libexec/java_home -v 11*`"
