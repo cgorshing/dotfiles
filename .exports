@@ -38,5 +38,5 @@ export LESS=" -R -M --shift 5 -S "
 # https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$(tty)
 
-export JAVA_HOME=`/usr/libexec/java_home -v1.8*`
-#export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME=`/usr/libexec/java_home -v11.0.1`
+
