@@ -11,6 +11,12 @@ unset phpserver;
 unset targz;
 unset cdf;
 
+function server() {
+  local script="const http = require('http');
+  const fs = require('fs'); let listenPort = process.env.PORT || 3000; var server = http.createServer((request, response) => { try { if (fs.existsSync('index.html')) { fs.readFile('index.html', (err, data) => { if (err) console.log(err); response.write(data.toString('utf8')); response.end(); }); } else { response.write('No file found'); } } catch(err) { console.error(err); }  }); console.log('Listening on port ' + listenPort); server.listen(listenPort, '127.0.0.1'); console.log('Server started');";
+  node --eval "$script"
+}
+
 function turnOnCHEF() {
   eval "$(chef shell-init bash)"
 }
