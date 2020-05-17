@@ -65,6 +65,7 @@ alias how-ssh-get-pub-from-private='ssh-keygen -y -f ~/.ssh/id_rsa'
 alias grd='./gradlew'
 alias g='git status'
 alias gpr='git pull --rebase'
+alias gphm='git push heroku master'
 
 alias ga='git add '
 #alias gb='git branch '
