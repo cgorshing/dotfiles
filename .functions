@@ -67,6 +67,12 @@ function update-gems() {
 function turnOnASDF() {
   . $HOME/.asdf/asdf.sh
   . $HOME/.asdf/completions/asdf.bash
+  update-asdf
+}
+
+function update-asdf() {
+  asdf update
+  asdf plugin update --all
 }
 
 function cleanup-docker() {
