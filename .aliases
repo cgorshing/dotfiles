@@ -76,6 +76,7 @@ alias gx='gitx --all'
 
 alias got='git '
 alias get='git '
+alias igt='git '
 
 alias gt='./gradlew tasks'
 alias gb='./gradlew build'
