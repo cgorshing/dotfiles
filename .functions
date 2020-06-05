@@ -71,6 +71,7 @@ function turnOnASDF() {
   . $HOME/.asdf/asdf.sh
   . $HOME/.asdf/completions/asdf.bash
   update-asdf
+  asdf current
 }
 
 function update-asdf() {
