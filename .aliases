@@ -5,6 +5,8 @@
 # Remove ones I don't use/want
 #unset tre;
 
+alias path='echo $PATH | tr -s ":" "\n"'
+
 alias df='df -h'
 alias du='du -h'
 alias ls='ls -h'
