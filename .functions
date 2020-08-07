@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-source ~/workspaces/dotfiles-1/.functions
+if test -f "~/workspaces/dotfiles-1/.functions"; then
+    source ~/workspaces/dotfiles-1/.functions
+fi
 
 # Remove ones I don't use/want
 unset tre;
