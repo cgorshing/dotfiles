@@ -6,3 +6,9 @@ indent_style = space
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
+indent_size = 2
+
+
+[*.{md,asciidoc,markdown}]
+trim_trailing_whitespace = false
+insert_final_newline = false
