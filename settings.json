@@ -1,0 +1,50 @@
+{
+  "breadcrumbs.enabled": false,
+
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.renderWhitespace": "all",
+  "editor.suggestSelection": "first",
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
+
+  "files.autoSave": "onFocusChange",
+  "files.associations": {
+    "*.log.*": "log",
+    "*DDI_Log_*": "log",
+    "log_*": "log"
+  },
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true,
+    "**/.elixir_ls": true,
+    "_build/": true,
+    "**/._*": true,
+    "deps/": true,
+    "node_modules/": true
+  },
+
+  "files.trimTrailingWhitespace": true,
+
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.tabSize": 2
+  },
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
+
+  "java.home": "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home",
+
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "REMOVE? vim.disableAnnoyingNeovimMessage": true,
+
+  "From https://dev.to/whizzzoe/how-i-set-up-vscode-for-productivity-checklist-omc": "",
+  "window.zoomLevel": 1,
+  "AA workbench.colorTheme": "Monokai Dimmed",
+  "elixirLS.dialyzerEnabled": false,
+  "java.semanticHighlighting.enabled": true,
+}
