@@ -47,4 +47,5 @@
   "AA workbench.colorTheme": "Monokai Dimmed",
   "elixirLS.dialyzerEnabled": false,
   "java.semanticHighlighting.enabled": true,
+  "explorer.confirmDelete": false,
 }
