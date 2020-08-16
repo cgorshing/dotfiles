@@ -1,0 +1,25 @@
+$ code --list-extensions
+alexkrechik.cucumberautocomplete
+DigitalBrainstem.javascript-ejs-support
+dzannotti.vscode-babel-coloring
+EditorConfig.EditorConfig
+eriklynd.json-tools
+golang.go
+JakeBecker.elixir-ls
+James-Yu.latex-workshop
+jebbs.plantuml
+mathiasfrohlich.Kotlin
+ms-azuretools.vscode-docker
+ms-dotnettools.csharp
+ms-python.python
+ms-vscode.cpptools
+ms-vsliveshare.vsliveshare
+redhat.java
+sdras.night-owl
+sveggiani.vscode-field-lights
+VisualStudioExptTeam.vscodeintellicode
+vscjava.vscode-java-debug
+vscjava.vscode-java-dependency
+vscjava.vscode-java-pack
+vscjava.vscode-java-test
+vscjava.vscode-maven
