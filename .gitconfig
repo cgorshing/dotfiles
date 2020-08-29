@@ -40,6 +40,8 @@
   current = yellow bold
   local = green bold
   remote = cyan bold
+[color "diff"]
+  whitespace = blue reverse
 [gc]
   auto = 1
 [push]
