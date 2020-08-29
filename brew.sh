@@ -1,3 +1,5 @@
+https://github.com/thoughtbot/laptop/blob/master/mac
+
 $ brew list
 ack
 adns
