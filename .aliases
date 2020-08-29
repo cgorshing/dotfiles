@@ -92,6 +92,10 @@ alias please='sudo $(fc -ln -1)'
 
 alias ipinfo='curl ipinfo.io/$(curl -s https://api.myip.com | jq -r ".ip")'
 
+# From https://github.com/nickjj/dotfiles/blob/master/.aliases
+# Need to look at the dev config file this brings in
+alias jek="RUBYOPT='-W0' bundle exec jekyll serve --config _config.yml,_config.dev.yml --drafts --livereload"
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias java8="export JAVA_HOME=`/usr/libexec/java_home -v1.8*`"
   alias java9="export JAVA_HOME=`/usr/libexec/java_home -v 9*`"
