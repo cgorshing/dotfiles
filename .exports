@@ -9,6 +9,7 @@ export HISTCONTROL=ignoreboth
 export PROMPT_COMMAND="history -a"
 export HISTSIZE=100000
 export HISTFILESIZE=100000
+#export HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:   "
 export EDITOR=vim
 
 export CLICOLOR=1
@@ -63,3 +64,15 @@ export LESS=" -R -M --shift 5 -S "
 #export LESS=-FMRXis
 
 export PATH="$HOME/bin:$PATH";
+
+# WSL 2 specific settings
+if grep -q "microsoft" /proc/version &>/dev/null; then
+  :
+fi
+
+# WSL 1 specific settings
+if grep -q "(Microsoft|WSL)" /proc/version &>/dev/null; then
+  if [ "$(umask)" = "0000" ]; then
+    umask 0022
+  fi
+fi
