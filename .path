@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 #export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
-command -v launchctl > /dev/null || launchctl setenv PATH $PATH
+command -v launchctl > /dev/null && launchctl setenv PATH $PATH

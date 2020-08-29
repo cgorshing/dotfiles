@@ -1,6 +1,3 @@
-# Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH";
-
 shopt -s histappend
 shopt -s cdspell
 
@@ -13,7 +10,7 @@ done;
 unset file;
 
 # https://docs.brew.sh/Shell-Completion
-if type breww &>/dev/null; then
+if type brew &>/dev/null; then
   HOMEBREW_PREFIX="$(brew --prefix)"
   if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
     source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
@@ -35,8 +32,3 @@ if [ -f '/Users/cgorshing/tools/google-cloud-sdk/completion.bash.inc' ]; then so
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
-
-function turnOnNpmCompletion() {
-  source <(npm completion)
-}

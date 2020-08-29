@@ -5,6 +5,12 @@
 # Remove ones I don't use/want
 #unset tre;
 
+# This is specific to WSL 2. If the WSL 2 VM goes rogue and decides not to free
+# up memory, this command will free your memory after about 20-30 seconds.
+#   Details: https://github.com/microsoft/WSL/issues/4166#issuecomment-628493643
+#alias drop_cache="sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'\""
+
+
 alias path='echo $PATH | tr -s ":" "\n"'
 
 alias df='df -h'
@@ -45,14 +51,11 @@ alias how-singleTest='echo mvn clean test -Dmunit.test=.*my-test.*#.*test-scenar
 alias how-remove-quarantine='echo xattr -r -d com.apple.quarantine *'
 alias how-checkout-remote-branch='echo git checkout --track origin/feature/daves_branch'
 alias how-git-list-tags="git for-each-ref --format='%(if)%(committerdate)%(then)%(committerdate)%(else)%(*committerdate)%(end) %(refname:lstrip=2)' refs/tags/*"
-alias how-pandoc="echo pandoc test1.md -s -o test1.pdf"
+alias how-pandoc='echo pandoc test1.md -s -o test1.pdf'
 
 alias how-restore-postgres='psql -d gens_dev -f gens-db-20180131-2043.bkup'
 
 alias make-test-jar='mvn clean org.apache.maven.plugins:maven-jar-plugin:test-jar'
-
-alias how-start-splunk='/Applications/Splunk/bin/splunk start'
-alias start-splunk='/Applications/Splunk/bin/splunk start'
 
 alias test-ping='ping 8.8.8.8'
 
@@ -60,7 +63,7 @@ alias how-gitDeleteCommit='echo git reset --hard HEAD^ '
 
 alias directorySize='du -hcs '
 
-alias grep="grep --binary-files=without-match --color=auto --devices=skip --exclude-dir=CVS --exclude-dir=.libs --exclude-dir=.deps --exclude-dir=.svn"
+alias grep='grep --binary-files=without-match --color=auto --devices=skip --exclude-dir=CVS --exclude-dir=.libs --exclude-dir=.deps --exclude-dir=.svn'
 
 alias how-ssh-get-pub-from-private='ssh-keygen -y -f ~/.ssh/id_rsa'
 
@@ -83,21 +86,25 @@ alias igt='git '
 alias gt='./gradlew tasks'
 alias gb='./gradlew build'
 
-#Open files with:
-#$ ij foo
-alias ij='open -b com.jetbrains.intellij'
-alias sl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-alias sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-
 alias dls='docker container ls'
-
-alias jenkins-stop='sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist'
-alias jenkins-start='sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist'
-
-alias java8="export JAVA_HOME=`/usr/libexec/java_home -v1.8*`"
-alias java9="export JAVA_HOME=`/usr/libexec/java_home -v 9*`"
-alias java11="export JAVA_HOME=`/usr/libexec/java_home -v 11*`"
 
 alias please='sudo $(fc -ln -1)'
 
-alias ipinfo="curl ipinfo.io/$(curl -s https://api.myip.com | jq -r '.ip')"
+alias ipinfo='curl ipinfo.io/$(curl -s https://api.myip.com | jq -r ".ip")'
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias java8="export JAVA_HOME=`/usr/libexec/java_home -v1.8*`"
+  alias java9="export JAVA_HOME=`/usr/libexec/java_home -v 9*`"
+  alias java11="export JAVA_HOME=`/usr/libexec/java_home -v 11*`"
+
+  alias jenkins-stop='sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist'
+  alias jenkins-start='sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist'
+  #Open files with:
+  #$ ij foo
+  alias ij='open -b com.jetbrains.intellij'
+  alias sl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+  alias sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+  alias how-start-splunk='/Applications/Splunk/bin/splunk start'
+  alias start-splunk='/Applications/Splunk/bin/splunk start'
+fi
