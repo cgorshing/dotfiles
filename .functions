@@ -60,6 +60,11 @@ function update-upstream() {
   git checkout master
   git merge upstream/master
 }
+function update-upstream-main() {
+  git fetch upstream
+  git checkout main
+  git merge upstream/main
+}
 
 function update-git() {
   for D in *
