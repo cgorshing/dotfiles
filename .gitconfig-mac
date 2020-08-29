@@ -1,0 +1,23 @@
+[diff]
+  tool = bc3
+
+
+#[merge]
+#  tool = bc3
+#[mergetool "bc3"]
+#  trustExitCode = true
+#[diff]
+  #tool = p4merge
+#[difftool "p4merge"]
+  #cmd = /Applications/p4merge.app/Contents/MacOS/p4merge "\"$REMOTE\"" "\"$LOCAL\""
+
+
+[merge]
+  keepBackup = false
+  tool = p4merge
+[mergetool "p4merge"]
+  cmd = /Applications/p4merge.app/Contents/MacOS/p4merge "\"$PWD/$BASE\"" "\"$PWD/$REMOTE\"" "\"$PWD/$LOCAL\"" "\"$PWD/$MERGED\""
+  keepTemporaries = false
+  trustExitCode = false
+  keepBackup = false
+

@@ -2,6 +2,7 @@
 foo/
 *.foo
 foo.*
+foo
 
 # From https://github.com/mathiasbynens/dotfiles/blob/master/.gitignore
 
