@@ -9,12 +9,15 @@
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
 
-  "files.autoSave": "onFocusChange",
+  "explorer.confirmDelete": false,
+
   "files.associations": {
     "*.log.*": "log",
-    "*DDI_Log_*": "log",
     "log_*": "log"
   },
+
+  "files.autoSave": "onFocusChange",
+  "files.eol": "\n",
   "files.exclude": {
     "**/.classpath": true,
     "**/.project": true,
@@ -26,13 +29,16 @@
     "deps/": true,
     "node_modules/": true
   },
-
   "files.trimTrailingWhitespace": true,
 
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features",
     "editor.tabSize": 2
   },
+
+  "latex-workshop.docker.enabled": true,
+  "latex-workshop.docker.image.latex": "koppor/texlive",
+
   "[markdown]": {
     "files.trimTrailingWhitespace": false
   },
@@ -46,6 +52,5 @@
   "window.zoomLevel": 1,
   "AA workbench.colorTheme": "Monokai Dimmed",
   "elixirLS.dialyzerEnabled": false,
-  "java.semanticHighlighting.enabled": true,
-  "explorer.confirmDelete": false,
+  "java.semanticHighlighting.enabled": true
 }
