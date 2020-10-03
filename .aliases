@@ -63,7 +63,7 @@ alias how-gitDeleteCommit='echo git reset --hard HEAD^ '
 
 alias directorySize='du -hcs '
 
-alias grep='grep --binary-files=without-match --color=auto --devices=skip --exclude-dir=CVS --exclude-dir=.libs --exclude-dir=.deps --exclude-dir=.svn'
+alias grep='grep --binary-files=without-match --color=auto --devices=skip --exclude-dir=CVS --exclude-dir=.libs --exclude-dir=.deps --exclude-dir=.svn --exclude-dir=node_modules --exclude-dir=.git'
 
 alias how-ssh-get-pub-from-private='ssh-keygen -y -f ~/.ssh/id_rsa'
 
@@ -76,8 +76,6 @@ alias ga='git add '
 #alias gb='git branch '
 alias gc='git commit'
 alias gd='git diff'
-alias gk='gitk --all&'
-alias gx='gitx --all'
 
 alias got='git '
 alias get='git '
