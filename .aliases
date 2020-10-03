@@ -84,7 +84,11 @@ alias igt='git '
 alias gt='./gradlew tasks'
 alias gb='./gradlew build'
 
-alias dls='docker container ls'
+alias dc='docker container'
+alias dv='docker volume'
+alias dcl='docker container ls'
+alias dcls='docker container ls'
+alias docker-network-query="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
 
 alias please='sudo $(fc -ln -1)'
 
