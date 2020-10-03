@@ -25,6 +25,7 @@
   type = cat-file -t
   dump = cat-file -p
 
+  one = log --pretty=format:"%h - %an, %ar : %s"
   pl = log --oneline --decorate --graph
   plall = log --oneline --decorate --all --graph
   ds = diff --staged
@@ -32,6 +33,14 @@
   dcw = diff --color-words
   dswd = diff --staged --word-diff
   dscw = diff --staged --color-words
+
+  # Show verbose output about tags, branches or remotes
+  tags = tag -l
+  branches = branch --all
+  remotes = remote --verbose
+
+  # From https://twitter.com/rakyll/status/1311479159936311299
+  undo = reset HEAD~
 [color]
   #ui = 1
   ui = auto
