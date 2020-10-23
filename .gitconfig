@@ -61,6 +61,8 @@
 
 [gpg]
   program = /usr/local/bin/gpg
+[pull]
+  rebase = false
 
 [init]
   templateDir = ~/workspaces/dotfiles/.config/git/template
