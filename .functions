@@ -57,12 +57,12 @@ function update-brew() {
 
 function update-upstream() {
   git fetch upstream
-  git checkout master
+  git switch master
   git merge upstream/master
 }
 function update-upstream-main() {
   git fetch upstream
-  git checkout main
+  git switch main
   git merge upstream/main
 }
 
