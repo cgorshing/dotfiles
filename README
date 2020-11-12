@@ -1,1 +1,11 @@
 My dotfiles
+
+Turn this into a loop and possibly backup file before removing.
+Maybe check if it is softlink or not.
+
+
+for file in .path .bash_prompt .exports .aliases .functions .extra; do
+  [[ -f $HOME/$file ]] && rm $HOME/$file
+
+  ln -s ~/w/dotfiles/$file  $HOME/$file
+done;
