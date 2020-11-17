@@ -1,0 +1,38 @@
+# https://stackoverflow.com/questions/13868052/how-to-get-diffmerge-configured-to-work-with-git-on-windows-7-or-windows-2012
+[merge]
+  tool = p4merge
+[diff]
+  tool = p4merge
+  guitool = p4merge
+
+[difftool "bc"]
+  path = C:/Program Files/Beyond Compare 4/bcomp.exe
+[difftool "p4merge"]
+  cmd = 'C:/Program Files/Perforce/p4merge.exe' \"$LOCAL\" \"$REMOTE\"
+[difftool "diffmerge"]
+  cmd = C:/Program\\ Files/SourceGear/Common/DiffMerge/sgdm.exe \"$LOCAL\" \"$REMOTE\"
+
+[mergetool "bc"]
+  path = C:/Program Files/Beyond Compare 4/bcomp.exe
+[mergetool "p4merge"]
+  cmd = 'C:/Program Files/Perforce/p4merge.exe' \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+[mergetool "diffmerge"]
+  cmd = C:/Program\\ Files/SourceGear/Common/DiffMerge/sgdm.exe -merge -result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+
+[mergetool]
+  trustExitcode = false
+  keepBackup = false
+  prompt = false
+[difftool]
+  prompt = false
+  keepBackup = false
+[difftool "sourcetree"]
+  cmd = '' \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+  cmd = "'' "
+  trustExitCode = true
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
