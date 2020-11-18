@@ -25,7 +25,7 @@
   type = cat-file -t
   dump = cat-file -p
 
-  one = log --pretty=format:"%h - %an, %ar : %s"
+  one = log --pretty=format:'%h - %an, %ar : %s'
   pl = log --oneline --decorate --graph
   plall = log --oneline --decorate --all --graph
   ds = diff --staged
