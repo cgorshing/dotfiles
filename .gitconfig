@@ -78,5 +78,5 @@
 
 # I have a few of these, I just don't want to show publicly
 # all the client names I have
-[includeIf "gitdir:C:/Users/cgorshing/workspaces/clientname/"]
   path = gitconfig.clientname
+[includeIf "gitdir/i:C:/Users/cgorshing/workspaces/clientname/"]
