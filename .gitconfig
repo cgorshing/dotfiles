@@ -34,6 +34,9 @@
   dswd = diff --staged --word-diff
   dscw = diff --staged --color-words
 
+  sw = switch
+  stashall = stash --include-untracked
+
   # Show verbose output about tags, branches or remotes
   tags = tag -l
   branches = branch --all
