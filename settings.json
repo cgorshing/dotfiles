@@ -52,5 +52,7 @@
   "window.zoomLevel": 1,
   "AA workbench.colorTheme": "Monokai Dimmed",
   "elixirLS.dialyzerEnabled": false,
-  "java.semanticHighlighting.enabled": true
+  "java.semanticHighlighting.enabled": true,
+  "python.showStartPage": false,
+  "python.languageServer": "Microsoft"
 }
