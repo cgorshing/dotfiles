@@ -39,6 +39,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   # https://stackoverflow.com/a/42265848/96656
   export GPG_TTY=$(tty)
 
+  # make GNU commands available
+  export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
+  export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
+
 elif [[ "$OSTYPE" == "cygwin" ]]; then
   # POSIX compatibility layer and Linux environment emulation for Windows
   :
