@@ -68,7 +68,8 @@
   rebase = false
 
 [init]
-  templateDir = ~/workspaces/dotfiles/.config/git/template
+  # templateDir = ~/w/dotfiles/.config/git/template
+  defaultBranch = main
 
 [include]
   path = ~/workspaces/dotfiles/.gitconfig-mac
