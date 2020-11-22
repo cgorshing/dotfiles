@@ -1,8 +1,8 @@
 {
 	"Jekyll":
 	{
-		"jekyll_markdown_extension": "md",
 		"jekyll_drafts_path": "/Users/cgorshing/workspaces/website/_drafts",
+		"jekyll_markdown_extension": "md",
 		"jekyll_posts_path": "/Users/cgorshing/workspaces/website/_posts",
 		"jekyll_templates_path": "/Users/cgorshing/workspaces/website/_templates",
 		"jekyll_uploads_path": "/Users/cgorshing/workspaces/website/uploads"
