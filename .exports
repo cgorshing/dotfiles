@@ -21,15 +21,18 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   :
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   export LIQUIBASE_HOME=/usr/local/opt/liquibase/libexec
-  export PATH=$PATH:/Users/cgorshing/tools/toggl-cli
-  export PATH=$PATH:/Users/cgorshing/tools/terraform_0.6.16_darwin_amd64
-  export PATH=$PATH:/Users/cgorshing/bin
-  export PATH=$PATH:/Users/cgorshing/tools/apache-maven-3.5.0/bin
-  export GRADLE_HOME=/Users/cgorshing/tools/gradle-5.2.1
-  export GROOVY_HOME=/Users/cgorshing/tools/groovy-2.4.12
+  export PATH=$PATH:$HOME/tools/toggl-cli
+  export PATH=$PATH:$HOME/tools/terraform_0.6.16_darwin_amd64
+  export PATH=$PATH:$HOME/bin
+  export PATH=$PATH:$HOME/tools/apache-maven-3.5.0/bin
+  export GRADLE_HOME=$HOME/tools/gradle-5.2.1
+  export GROOVY_HOME=$HOME/tools/groovy-2.4.12
+
+  export FLUTTER_HOME=$HOME/tools/flutter_macos_1.22.2-stable
 
   # gnubin is for gnu packages (like gnu-sed/gsed)
   export PATH=/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH:/usr/local/sbin
+  export PATH=$PATH:$FLUTTER_HOME/bin
   export JAVA_HOME=`/usr/libexec/java_home -v11.0.1`
   # per https://github.com/pstadler/keybase-gpg-github
   # Avoid issues with `gpg` as installed via Homebrew.
