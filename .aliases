@@ -16,13 +16,16 @@ alias path='echo $PATH | tr -s ":" "\n"'
 alias df='df -h'
 alias du='du -h'
 alias ls='ls -h'
-alias grep='grep --color'                     # show differences in colour
-alias egrep='egrep --color=auto'              # show differences in colour
-alias fgrep='fgrep --color=auto'              # show differences in colour
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 
-alias ll='ls -l'                              # long list
-alias la='ls -A'                              # all but . and ..
-alias l='ls -CF'                              #
+# Use auto and not always here
+# This keeps color codes from being redirected if "ls > filename" is used
+alias ls='ls --color=auto'
+alias ll='ls -l'  # long list
+alias la='ls -A'  # all but . and ..
+alias l='ls -CF'
 
 set -o vi
 
