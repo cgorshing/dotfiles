@@ -68,7 +68,6 @@
   rebase = false
 
 [init]
-  # templateDir = ~/w/dotfiles/.config/git/template
   defaultBranch = main
 
 [include]
