@@ -9,6 +9,7 @@ automake
 awscli
 bash
 bash-completion@2
+bdw-gc
 boost
 cabal-install
 cairo
@@ -17,6 +18,7 @@ coreutils
 docbook
 docbook-xsl
 elixir
+entr
 erlang
 erlang@20
 exercism
@@ -42,12 +44,14 @@ gnu-sed
 gnupg
 gnutls
 go
+gobject-introspection
 gpgme
 graphite2
 graphviz
 grep
 grip
 gts
+guile
 harfbuzz
 heroku
 heroku-node
@@ -69,6 +73,7 @@ libgpg-error
 libheif
 libidn2
 libksba
+liblqr
 libmpc
 libomp
 libpng
@@ -93,7 +98,6 @@ oniguruma
 openexr
 openjdk
 openjpeg
-openssl
 openssl@1.1
 p11-kit
 p7zip
@@ -107,8 +111,8 @@ pixman
 pkg-config
 plantuml
 protobuf@3.7
-python
 python@3.8
+python@3.9
 rabbitmq
 readline
 shared-mime-info
