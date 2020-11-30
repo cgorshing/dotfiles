@@ -12,9 +12,6 @@ export HISTFILESIZE=100000
 #export HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:   "
 export EDITOR=vim
 
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-
 export MAVEN_OPTS=-Xmx512m
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then

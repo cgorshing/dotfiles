@@ -20,9 +20,101 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-# Use auto and not always here
-# This keeps color codes from being redirected if "ls > filename" is used
-alias ls='ls --color=auto'
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+  # Use auto and not 'always' here
+  # This keeps color codes from being redirected if "ls > filename" is used
+  colorflag="--color"
+  export LS_COLORS='no=00:fi=00:di=01;31:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
+
+  # colors definitions
+  dark_black="30"
+  dark_red="31"
+  dark_green="32"
+  dark_yellow="33"
+  dark_blue="34"
+  dark_purple="35"
+  dark_cyan="36"
+  dark_white="37"
+  black="90"
+  red="91"
+  green="92"
+  yellow="93"
+  blue="94"
+  purple="95"
+  cyan="96"
+  white="97"
+
+  # format definitions (should precede color)
+  bold="1;"
+  italic="3;"
+  underline="4;"
+
+  # File system
+  LS_COLORS="di=$dark_cyan"
+  LS_COLORS+=":ln=$italic$yellow"
+  LS_COLORS+=":ex=$red"
+
+  # Code files
+  LS_COLORS+=":*.o=$dark_cyan"
+  LS_COLORS+=":*.h=$dark_green"
+  LS_COLORS+=":*.hh=$dark_green"
+  LS_COLORS+=":*.hpp=$dark_green"
+  LS_COLORS+=":*.c=$yellow"
+  LS_COLORS+=":*.C=$yellow"
+  LS_COLORS+=":*.cc=$yellow"
+  LS_COLORS+=":*.cpp=$yellow"
+  LS_COLORS+=":*.hxx=$yellow"
+
+  # Build
+  LS_COLORS+=":*Makefile=$dark_blue"
+  LS_COLORS+=":*SConscript=$dark_blue"
+  LS_COLORS+=":*CMakeList.txt=$dark_blue"
+  LS_COLORS+=":*configure=$dark_blue"
+  LS_COLORS+=":*.diff=$dark_cyan"
+
+  # Project related
+  LS_COLORS+=":*README=$green"
+  LS_COLORS+=":*NOTES=$green"
+  LS_COLORS+=":*INSTALL=$dark_cyan"
+  LS_COLORS+=":*TODO=$green"
+  LS_COLORS+=":*INFO=$dark_cyan"
+  LS_COLORS+=":*MANIFEST=$dark_cyan"
+  LS_COLORS+=":*ChangeLog=$dark_cyan"
+  LS_COLORS+=":*AUTHORS=$dark_cyan"
+  LS_COLORS+=":*CONTRIBUTORS=$dark_cyan"
+  LS_COLORS+=":*LICENSE=$dark_cyan"
+  LS_COLORS+=":*PKG-INFO=$dark_cyan"
+  LS_COLORS+=":*NEWS=$dark_cyan"
+  LS_COLORS+=":*COPYING=$dark_cyan"
+  LS_COLORS+=":*COPYRIGHT=$dark_cyan"
+
+  # archives
+  LS_COLORS+=":*.gz=$cyan"
+  LS_COLORS+=":*.bz2=$cyan"
+  LS_COLORS+=":*.tbz=$cyan"
+  LS_COLORS+=":*.tgz=$cyan"
+  LS_COLORS+=":*.7z=$cyan"
+  LS_COLORS+=":*.xz=$cyan"
+  LS_COLORS+=":*.zip=$cyan"
+
+  # misc files
+  LS_COLORS+=":*.log=$dark_cyan"
+  LS_COLORS+=":*.bak=$dark_purple"
+  LS_COLORS+=":*~=$dark_purple"
+  LS_COLORS+=":*#=$italic$dark_purple"
+  LS_COLORS+=":*tags=$dark_purple"
+  export LS_COLORS
+else # macOS `ls`
+  # I've moved to homebrew's coreutils, but leaving
+  # this here "just in case"
+  colorflag="-G"
+  export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
+fi
+
+
+# Always use color output for `ls`
+alias ls="command ls ${colorflag}"
 alias ll='ls -l'  # long list
 alias la='ls -A'  # all but . and ..
 alias l='ls -CF'
