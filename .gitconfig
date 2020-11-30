@@ -1,14 +1,14 @@
 [user]
   name = Chad Gorshing
   email = gorshing@gmail.com
-  signingkey = 334B0E60
+  signingKey = 334B0E60
 [branch]
-  autosetupmerge = always
-  autosetuprebase = always
+  autoSetupMerge = always
+  autoSetupRebase = always
 [apply]
   whitespace = nowarn
 [core]
-  excludesfile = ~/.gitignore
+  excludesFile = ~/.gitignore
   autocrlf = input
   safecrlf = true
   eol = lf
