@@ -2,14 +2,18 @@
 
 #source ~/workspaces/dotfiles-1/.aliases
 
-# Remove ones I don't use/want
-#unset tre;
+# Remove the alias' I don't use/want
+#unalias emptytrash;
 
 # This is specific to WSL 2. If the WSL 2 VM goes rogue and decides not to free
 # up memory, this command will free your memory after about 20-30 seconds.
 #   Details: https://github.com/microsoft/WSL/issues/4166#issuecomment-628493643
 #alias drop_cache="sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'\""
 
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 alias path='echo $PATH | tr -s ":" "\n"'
 
@@ -17,8 +21,8 @@ alias df='df -h'
 alias du='du -h'
 alias ls='ls -h'
 alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+alias egrep='grep -E --color=auto'
+alias fgrep='grep -F --color=auto'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
