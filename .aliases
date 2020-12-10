@@ -17,15 +17,6 @@ alias .....="cd ../../../.."
 
 alias path='echo $PATH | tr -s ":" "\n"'
 
-alias df='df -h'
-alias du='du -h'
-alias ls='ls -h'
-alias grep='grep --color=auto'
-alias egrep='grep -E --color=auto'
-alias fgrep='grep -F --color=auto'
-
-alias ls='exa  --long --header --git --sort=modified'
-
 #----------------------grep-----------------------------
 GREP_OPTIONS="  --exclude-dir=\.svn"
 GREP_OPTIONS+=" --exclude-dir=\.git"
@@ -56,8 +47,8 @@ GREP_OPTIONS+=" --binary-files=without-match"
 GREP_OPTIONS+=" --color=auto"
 
 alias grep="grep $GREP_OPTIONS 2>/dev/null"
-alias egrep="egrep $GREP_OPTIONS"
-alias fgrep="fgrep $GREP_OPTIONS"
+alias egrep="grep -E $GREP_OPTIONS"
+alias fgrep="grep -F $GREP_OPTIONS"
 unset GREP_OPTIONS
 
 # Detect which `ls` flavor is in use
@@ -144,21 +135,26 @@ if ls --color > /dev/null 2>&1; then # GNU `ls`
   LS_COLORS+=":*#=$italic$dark_purple"
   LS_COLORS+=":*tags=$dark_purple"
   export LS_COLORS
-else # macOS `ls`
+elif ls -G -d . >/dev/null 2>&1; then # macOS `ls`
   # I've moved to using gnu ls (from coreutils) and these are for
   # BSD ls, which macos uses by default. Leaving here for now
   # https://www.freebsd.org/cgi/man.cgi?query=ls&apropos=0&sektion=1&format=html
   colorflag="-G" # Or could use export CLICOLOR=1
   export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
-  export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+  export LSCOLORS='gxBxhxDxfxhxhxhxhxcxcx'
+else
+    echo 'Unknown `ls` - solaris ls?'
 fi
 
+alias df='df -h'
+alias du='du -h'
 
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
 alias ll='ls -l'  # long list
 alias la='ls -A'  # all but . and ..
 alias l='ls -CF'
+alias lsr='ls -lrt'
 
 set -o vi
 
@@ -168,9 +164,6 @@ alias cde='cd ~/workspaces/elixir'
 alias cdp='cd ~/workspaces/phoenix'
 alias cdt='cd ~/tools'
 alias gemspec='vi *.gemspec'
-
-alias lsr='ls -lrt'
-alias lsr='exa  --long --header --git --sort=modified'
 
 alias depAnalyze='mvn dependency:analyze'
 alias depTree='mvn dependency:tree > depTree'
