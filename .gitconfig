@@ -70,9 +70,7 @@
   defaultBranch = main
 
 [include]
-  path = ~/workspaces/dotfiles/.gitconfig-mac
-  path = ~/workspaces/dotfiles/.gitconfig-linux
-  path = ~/workspaces/dotfiles/.gitconfig-win
+  path = ~/workspaces/dotfiles/.gitconfig-OS
 
 # I have a few of these, I just don't want to show publicly
 # all the client names I have
