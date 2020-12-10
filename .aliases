@@ -217,8 +217,10 @@ alias ga='git add '
 #alias gb='git branch '
 alias gc='git commit'
 alias gd='git diff'
-alias gw='git switch' # I'm tryig to decide which one I like
-alias gs='git switch'
+# I don't like these because bash completion doesn't work <--- Reminder to future self, cause I know I'll forget about this.
+# bash completion does work with 'git sw'
+#alias gs='git switch'
+#alias sw='git switch'
 
 alias got='git '
 alias get='git '
