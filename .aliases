@@ -24,6 +24,40 @@ alias grep='grep --color=auto'
 alias egrep='grep -E --color=auto'
 alias fgrep='grep -F --color=auto'
 
+#----------------------grep-----------------------------
+GREP_OPTIONS="  --exclude-dir=\.svn"
+GREP_OPTIONS+=" --exclude-dir=\.git"
+GREP_OPTIONS+=" --exclude-dir=node_modules"
+GREP_OPTIONS+=" --exclude-dir=echarts"
+GREP_OPTIONS+=" --exclude-dir=jquery"
+GREP_OPTIONS+=" --exclude-dir=css"
+GREP_OPTIONS+=" --exclude-dir=bootstrap"
+GREP_OPTIONS+=" --exclude-dir=logs"
+GREP_OPTIONS+=" --exclude-dir=useless"
+GREP_OPTIONS+=" --exclude-dir=js"
+GREP_OPTIONS+=" --exclude-dir=tlogs"
+GREP_OPTIONS+=" --exclude-dir=data"
+GREP_OPTIONS+=" --exclude-dir=data_temp"
+GREP_OPTIONS+=" --exclude-dir=vendor"
+
+GREP_OPTIONS+=" --exclude=\*.tmp"
+GREP_OPTIONS+=" --exclude=tags"
+GREP_OPTIONS+=" --exclude=*.csv"
+GREP_OPTIONS+=" --exclude=*.json"
+GREP_OPTIONS+=" --devices=skip"
+GREP_OPTIONS+=" --exclude-dir=CVS"
+GREP_OPTIONS+=" --exclude-dir=\.libs"
+GREP_OPTIONS+=" --exclude-dir=\.deps"
+
+# GREP_OPTIONS+=" --directories=recurse"
+GREP_OPTIONS+=" --binary-files=without-match"
+GREP_OPTIONS+=" --color=auto"
+
+alias grep="grep $GREP_OPTIONS 2>/dev/null"
+alias egrep="egrep $GREP_OPTIONS"
+alias fgrep="fgrep $GREP_OPTIONS"
+unset GREP_OPTIONS
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
   # Use auto and not 'always' here
@@ -162,7 +196,6 @@ alias how-gitDeleteCommit='echo git reset --hard HEAD^ '
 
 alias directorySize='du -hcs '
 
-alias grep='grep --binary-files=without-match --color=auto --devices=skip --exclude-dir=CVS --exclude-dir=.libs --exclude-dir=.deps --exclude-dir=.svn --exclude-dir=node_modules --exclude-dir=.git'
 
 alias how-ssh-get-pub-from-private='ssh-keygen -y -f ~/.ssh/id_rsa'
 
