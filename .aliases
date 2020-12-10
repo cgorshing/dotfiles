@@ -24,6 +24,8 @@ alias grep='grep --color=auto'
 alias egrep='grep -E --color=auto'
 alias fgrep='grep -F --color=auto'
 
+alias ls='exa  --long --header --git --sort=modified'
+
 #----------------------grep-----------------------------
 GREP_OPTIONS="  --exclude-dir=\.svn"
 GREP_OPTIONS+=" --exclude-dir=\.git"
@@ -167,6 +169,8 @@ alias cdt='cd ~/tools'
 alias gemspec='vi *.gemspec'
 
 alias lsr='ls -lrt'
+alias lsr='exa  --long --header --git --sort=modified'
+
 alias depAnalyze='mvn dependency:analyze'
 alias depTree='mvn dependency:tree > depTree'
 alias surefire-grep='grep -H "Tests run" target/surefire-reports/*.txt | grep FAILURE'
