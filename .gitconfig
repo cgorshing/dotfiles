@@ -12,6 +12,11 @@
   autocrlf = input
   safecrlf = true
   eol = lf
+# Careful git uses LESS
+# https://stackoverflow.com/questions/48341920/git-branch-command-behaves-like-less
+[pager]
+  tag = false
+  branch = false
 [alias]
   contributors = shortlog --summary --numbered
   co = checkout

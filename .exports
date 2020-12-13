@@ -12,7 +12,15 @@ export EDITOR=vim
 export MAVEN_OPTS=-Xmx512m
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  :
+
+  if [ -d "$HOME/bin" ] ; then
+      PATH="$HOME/bin:$PATH"
+  fi
+
+  if [ -d "$HOME/.local/bin" ] ; then
+      PATH="$HOME/.local/bin:$PATH"
+  fi
+
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   export LIQUIBASE_HOME=/usr/local/opt/liquibase/libexec
   export PATH=$PATH:$HOME/tools/toggl-cli
@@ -56,13 +64,15 @@ fi
 
 export PATH=$PATH:$GRADLE_HOME/bin:$GROOVY_HOME/bin
 
+# Careful git uses LESS
+# https://stackoverflow.com/questions/48341920/git-branch-command-behaves-like-less
+
 # From https://gist.github.com/textarcana/4611277
-export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+#export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
 # From https://gist.github.com/karolyi/ad020e676e989678d16e
 #export LESSOPEN='| /usr/local/etc/source-highlight-esc.sh %s'
 
-export LESS=" -R -M --shift 5 -S "
-#export LESS=-FMRXis
+export LESS="--quit-if-one-screen --RAW-CONTROL-CHARS --LONG-PROMPT --shift 5 --chop-long-lines "
 
 export PATH="$HOME/bin:$PATH";
 
