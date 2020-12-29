@@ -85,6 +85,16 @@ function turnOnASDF() {
   asdf current
 }
 
+function turnOnVENV() {
+  if [[ -d .venv ]]; then
+    source .venv/bin/activate
+  elif [[ -d ../.venv ]]; then
+    source ../.venv/bin/activate
+  else
+    echo "Can't find a venv to source"
+  fi
+}
+
 function update-asdf() {
   asdf update
   asdf plugin update --all
