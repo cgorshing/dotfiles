@@ -68,6 +68,10 @@
 
 [gpg]
   program = /usr/local/bin/gpg
+[fetch]
+  prune = true
+[rebase]
+  autosquash = true
 [pull]
   rebase = true
 
