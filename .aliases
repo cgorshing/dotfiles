@@ -210,6 +210,8 @@ alias gd='git diff'
 # bash completion does work with 'git sw'
 #alias gs='git switch'
 #alias sw='git switch'
+alias gwm='git switch main'
+alias gsm='git switch main'
 
 alias got='git '
 alias get='git '
