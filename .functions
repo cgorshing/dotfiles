@@ -95,12 +95,16 @@ function turnOnVENV() {
   fi
 }
 
-function cleanVENV() {
+function cleanup-venv() {
   if [[ -d .venv ]]; then
-    deactivate && rm -rf .venv && python -m venv .venv && turnOnVENV && python -m pip install --upgrade pip && python -m pip install -r requirements.txt  -r test_requirements.txt
+    deactivate && rm -rf .venv && python -m venv .venv && turnOnVENV && update-pip && python -m pip install -r requirements.txt  -r test_requirements.txt
   else
     echo "Can't find a venv to clean"
   fi
+}
+
+function update-pip() {
+  python -m pip install --upgrade pip
 }
 
 function update-asdf() {
