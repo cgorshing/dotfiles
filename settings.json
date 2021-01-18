@@ -13,7 +13,8 @@
 
   "files.associations": {
     "*.log.*": "log",
-    "log_*": "log"
+    "log_*": "log",
+    ".gitconfig-*": "properties",
   },
 
   "files.autoSave": "onFocusChange",
