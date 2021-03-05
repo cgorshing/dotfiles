@@ -94,12 +94,19 @@ function turnOnVENV() {
     echo "Can't find a venv to source"
   fi
 }
+export -f turnOnVENV
 
 function build-venv() {
   if [[ -d .venv ]]; then
     echo "Won't build .venv because it is already exists."
   else
-    python -m venv .venv && turnOnVENV && update-pip && python -m pip install -r requirements.txt  -r test_requirements.txt
+    python -m venv .venv && \
+      turnOnVENV && \
+      update-pip && \
+      python -m pip install pyclean && \
+      python -m pip install django-test-migrations && \
+      # python -m pip install pylint && \
+      python -m pip install -r requirements.txt  -r test_requirements.txt
   fi
 }
 function cleanup-venv() {
@@ -122,6 +129,11 @@ function update-asdf() {
 function cleanup-docker() {
   docker system prune -a
   docker volume prune
+}
+
+function cleanup-directories() {
+  find . -name ".DS_Store" -print -delete
+
 }
 
 function compress-image() {
