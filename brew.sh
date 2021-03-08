@@ -1,5 +1,7 @@
 https://github.com/thoughtbot/laptop/blob/master/mac
 
+Look at using brew bundle dump instead of brew list
+
 $ brew list
 ack
 adns
