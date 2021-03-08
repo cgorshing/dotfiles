@@ -12,11 +12,19 @@
   autocrlf = input
   safecrlf = true
   eol = lf
+  # --quit-if-one-screen --RAW-CONTROL-CHARS --LONG-PROMPT --shift 5 --chop-long-lines
+  pager = less --quit-if-one-screen
 # Careful git uses LESS
 # https://stackoverflow.com/questions/48341920/git-branch-command-behaves-like-less
+# I also found that the "quit-if-one-screen" makes git stash show
+# nothing, might be related to a specific termainal/tty
+
+# https://stackoverflow.com/questions/4225350/turning-off-the-pager-in-git-for-the-stash-command-only#comment13117129_9869503
+# Doesn't work here (xterm on pts) because after less quit, there is nothing left of less display, it redraws the previous prompts. But it works on the term "linux" on tty1.
 [pager]
   tag = false
   branch = false
+  stash = false
 [alias]
   contributors = shortlog --summary --numbered
   co = checkout
