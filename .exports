@@ -85,6 +85,8 @@ export PATH="$HOME/bin:$PATH";
 # WSL 2 specific settings
 if grep -q "microsoft" /proc/version &>/dev/null; then
   :
+  export GCLOUD_HOME=$HOME/tools/google-cloud-sdk
+  export PATH=$GCLOUD_HOME/bin:$PATH
 fi
 
 # WSL 1 specific settings
