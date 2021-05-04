@@ -107,7 +107,8 @@ function build-venv() {
       python -m pip install pylint-django && \
       python -m pip install django-test-migrations && \
       python -m pip install pylint && \
-      python -m pip install -r requirements.txt  -r test_requirements.txt
+      [[ -s requirements.txt ]] && python -m pip install -r requirements.txt
+      [[ -s test_requirements.txt ]] && python -m pip install -r test_requirements.txt
   fi
 }
 function cleanup-venv() {
