@@ -122,6 +122,10 @@ function update-pip() {
   python -m pip install --upgrade pip
 }
 
+function update-npm() {
+  npm install -g npm
+}
+
 function update-asdf() {
   asdf update
   asdf plugin update --all
