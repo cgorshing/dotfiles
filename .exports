@@ -36,6 +36,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   export GRADLE_HOME=$HOME/tools/gradle-5.2.1
   export GROOVY_HOME=$HOME/tools/groovy-2.4.12
 
+  POSTGRES_HOME=/Applications/Postgres.app/Contents/Versions/latest
+  export PATH=$PATH:$POSTGRES_HOME/bin
+
   export FLUTTER_HOME=$HOME/tools/flutter_macos_1.22.2-stable
 
   # gnubin is for gnu packages (like gnu-sed/gsed)
