@@ -23,12 +23,6 @@ fi
 
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/tools/google-cloud-sdk/path.bash.inc" ]; then source "$HOME/tools/google-cloud-sdk/path.bash.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/tools/google-cloud-sdk/completion.bash.inc" ]; then source "$HOME/tools/google-cloud-sdk/completion.bash.inc"; fi
-
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh

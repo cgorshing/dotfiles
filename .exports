@@ -51,6 +51,13 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
   export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
 
+  # The next line updates PATH for the Google Cloud SDK.
+  if [ -f "$HOME/tools/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/tools/google-cloud-sdk/path.bash.inc"; fi
+
+  # The next line enables shell command completion for gcloud.
+  if [ -f "$HOME/tools/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/tools/google-cloud-sdk/completion.bash.inc"; fi
+
+
 elif [[ "$OSTYPE" == "cygwin" ]]; then
   # POSIX compatibility layer and Linux environment emulation for Windows
   :
