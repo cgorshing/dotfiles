@@ -4,8 +4,12 @@ Turn this into a loop and possibly backup file before removing.
 Maybe check if it is softlink or not.
 
 
-for file in .path .bash_prompt .exports .aliases .functions .extra; do
-  [[ -f $HOME/$file ]] && rm $HOME/$file
+for file in .gitconfig .path .bash_prompt .exports .aliases .functions .extra; do
+  [[ -f ~/$file ]] && mv ~/$file ~/$file.backup
 
-  ln -s ~/w/dotfiles/$file  $HOME/$file
+  ln -s ~/workspaces/dotfiles/$file ~/$file
 done;
+
+For VSCode
+[[ -f ~/Library/Application\ Support/Code/User/settings.json ]] && mv ~/Library/Application\ Support/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json.backup
+ln -s ~/workspaces/dotfiles/settings.json ~/Library/Application\ Support/Code/User/settings.json
