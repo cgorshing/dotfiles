@@ -1,4 +1,10 @@
-$ code --list-extensions
+code --list-extensions
+
+for f in `cat extensions.txt`; do code --install-extension "$f"; done
+
+
+alefragnani.Bookmarks
+alefragnani.numbered-bookmarks
 alexkrechik.cucumberautocomplete
 DigitalBrainstem.javascript-ejs-support
 dzannotti.vscode-babel-coloring
@@ -15,7 +21,6 @@ ms-python.python
 ms-vscode.cpptools
 ms-vsliveshare.vsliveshare
 redhat.java
-sdras.night-owl
 sveggiani.vscode-field-lights
 VisualStudioExptTeam.vscodeintellicode
 vscjava.vscode-java-debug
@@ -23,3 +28,5 @@ vscjava.vscode-java-dependency
 vscjava.vscode-java-pack
 vscjava.vscode-java-test
 vscjava.vscode-maven
+vscode-icons-team.vscode-icons
+WallabyJs.quokka-vscode
