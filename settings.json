@@ -1,5 +1,15 @@
 {
+  // Mainly taken from other people, can't remember all
+  // but I'm trying to track them now
+  // https://dev.to/whizzzoe/how-i-set-up-vscode-for-productivity-checklist-omc
+
+  "bookmarks.navigateThroughAllFiles": false,
   "breadcrumbs.enabled": false,
+
+  // Most folks won't need this, but my wife
+  // uses a screenreader and this keeps VSCode
+  // from prompting me about it
+  "editor.accessibilitySupport": "off",
 
   "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
@@ -8,6 +18,8 @@
   "editor.suggestSelection": "first",
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
+
+  "elixirLS.dialyzerEnabled": false,
 
   "explorer.confirmDelete": false,
 
@@ -21,6 +33,7 @@
   "files.eol": "\n",
   "files.exclude": {
     "**/.classpath": true,
+    "**/.idea/": true,
     "**/.project": true,
     "**/.settings": true,
     "**/.factorypath": true,
@@ -28,7 +41,8 @@
     "_build/": true,
     "**/._*": true,
     "deps/": true,
-    "node_modules/": true
+    "**/node_modules/": true,
+    "**/__pycache__/": true
   },
   "files.trimTrailingWhitespace": true,
 
@@ -44,16 +58,17 @@
     "files.trimTrailingWhitespace": false
   },
 
-  "java.home": "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home",
-
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "REMOVE? vim.disableAnnoyingNeovimMessage": true,
-
-  "From https://dev.to/whizzzoe/how-i-set-up-vscode-for-productivity-checklist-omc": "",
-  "window.zoomLevel": 1,
-  "AA workbench.colorTheme": "Monokai Dimmed",
-  "elixirLS.dialyzerEnabled": false,
-  "java.semanticHighlighting.enabled": true,
   "python.showStartPage": false,
-  "python.languageServer": "Microsoft"
+  "python.languageServer": "Pylance",
+
+
+  "window.zoomLevel": 1,
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.editorAssociations": [
+    {
+      "filenamePattern": "*.ipynb",
+      "viewType": "jupyter.notebook.ipynb"
+    }
+  ],
+  "workbench.iconTheme": "vscode-icons"
 }
