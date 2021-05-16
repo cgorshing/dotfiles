@@ -1,7 +1,12 @@
+# autoconf and automake are needed for building some packages from source,
+# primarily through asdf-vm
+
 # Install with "brew bundle"
 tap "homebrew/bundle"
 tap "homebrew/core"
 brew "ack"
+brew "autoconf"
+brew "automake"
 brew "bash"
 brew "bind"
 brew "coreutils"
@@ -13,7 +18,7 @@ brew "grep"
 brew "irssi"
 brew "mtr"
 brew "ngrep"
-
+brew "wget"
 
 # This was from an older iMac
 # I don't want some of these managed by homebrew anymore
