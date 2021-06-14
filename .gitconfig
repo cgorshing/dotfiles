@@ -1,7 +1,7 @@
 [user]
   name = Chad Gorshing
   email = gorshing@gmail.com
-  signingKey = 334B0E60
+  signingKey = 4413A700
 [branch]
   autoSetupMerge = always
   autoSetupRebase = always
