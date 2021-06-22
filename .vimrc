@@ -2,7 +2,7 @@
 
 execute pathogen#infect()
 
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 
 let g:NERDTreeWinSize=41
 "https://www.reddit.com/r/vim/comments/a4yzyt/g_characters_prefixing_directory_and_file_names/
