@@ -2,6 +2,8 @@
   name = Chad Gorshing
   email = gorshing@gmail.com
   signingKey = 4413A700
+[commit]
+	gpgsign = true
 [branch]
   autoSetupMerge = always
   autoSetupRebase = always
