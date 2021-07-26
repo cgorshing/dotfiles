@@ -10,7 +10,10 @@
 	"added_words":
 	[
 		"Heroku",
-		"Gorshing"
+		"Gorshing",
+		"webmentions",
+		"webmention",
+		"Microformat"
 	],
 	"caret_style": "solid",
 	"color_scheme": "Packages/Predawn/predawn.tmTheme",
