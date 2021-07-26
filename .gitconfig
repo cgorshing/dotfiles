@@ -77,9 +77,6 @@
   auto = 1
 [push]
   default = simple
-
-[gpg]
-  program = /usr/local/bin/gpg
 [fetch]
   prune = true
 [rebase]
