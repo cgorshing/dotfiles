@@ -2,3 +2,6 @@
   tool = bc3
 [difftool "bc3"]
   trustExitCode = true
+
+[gpg]
+  program = /usr/local/bin/gpg

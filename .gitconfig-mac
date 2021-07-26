@@ -18,3 +18,5 @@
   trustExitCode = false
   keepBackup = false
 
+[gpg]
+  program = /usr/local/bin/gpg

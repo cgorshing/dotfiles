@@ -36,3 +36,6 @@
   process = git-lfs filter-process
   required = true
   clean = git-lfs clean -- %f
+
+[gpg]
+  program = "C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe"
