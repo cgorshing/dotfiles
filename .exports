@@ -23,6 +23,8 @@ export LC_ALL='en_US.UTF-8';
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
+  PATH=$HOME/tools
+
   if [ -d "$HOME/.local/bin" ] ; then
       PATH="$HOME/.local/bin:$PATH"
   fi
@@ -30,7 +32,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   export BASH_SILENCE_DEPRECATION_WARNING=1
 
-  export PATH=$PATH:$HOME/local/bin
+  export PATH=$PATH:$HOME/local/bin:$HOME/tools
 
   export LIQUIBASE_HOME=/usr/local/opt/liquibase/libexec
   export PATH=$PATH:$HOME/tools/toggl-cli
