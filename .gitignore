@@ -20,3 +20,13 @@ Thumbs.db
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+
+scratchpad*.*
+pytest.ini
+coverage-report.txt
+.tool-versions
+.pylintrc
+vscode/
+.vscode
+
+.idea/
