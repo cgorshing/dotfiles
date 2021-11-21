@@ -252,3 +252,5 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias how-start-splunk='/Applications/Splunk/bin/splunk start'
   alias start-splunk='/Applications/Splunk/bin/splunk start'
 fi
+
+alias k=kubectl
