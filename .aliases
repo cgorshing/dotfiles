@@ -237,9 +237,9 @@ alias jek="RUBYOPT='-W0' bundle exec jekyll serve --config _config.yml,_config.d
 alias weather='curl http://wttr.in'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias java8="export JAVA_HOME=`/usr/libexec/java_home -v1.8*`"
-  alias java9="export JAVA_HOME=`/usr/libexec/java_home -v 9*`"
-  alias java11="export JAVA_HOME=`/usr/libexec/java_home -v 11*`"
+  function java8() { export JAVA_HOME=`/usr/libexec/java_home -v1.8*` }
+  function java9() { export JAVA_HOME=`/usr/libexec/java_home -v 9*` }
+  function java11() { export JAVA_HOME=`/usr/libexec/java_home -v 11*` }
 
   alias jenkins-stop='sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist'
   alias jenkins-start='sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist'
