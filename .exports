@@ -30,6 +30,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   fi
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
+  if [ -d "$HOME/.local/bin" ] ; then
+      PATH="$HOME/.local/bin:$PATH"
+  fi
+
   export BASH_SILENCE_DEPRECATION_WARNING=1
 
   export PATH=$PATH:$HOME/local/bin:$HOME/tools
