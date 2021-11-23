@@ -5,7 +5,7 @@
 		"jekyll_markdown_extension": "md",
 		"jekyll_posts_path": "/Users/cgorshing/workspaces/website/_posts",
 		"jekyll_templates_path": "/Users/cgorshing/workspaces/website/_templates",
-		"jekyll_uploads_path": "/Users/cgorshing/workspaces/website/uploads"
+		"jekyll_uploads_path": "/Users/cgorshing/workspaces/website/uploads",
 	},
 	"added_words":
 	[
@@ -22,7 +22,7 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Vintage"
+		"Vintage",
 	],
 	"open_files_in_new_window": false,
 	"predawn_findreplace_small": false,
@@ -48,5 +48,5 @@
 	"theme": "predawn-DEV.sublime-theme",
 	"theme1": "predawn.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true
+	"trim_trailing_white_space_on_save": true,
 }
