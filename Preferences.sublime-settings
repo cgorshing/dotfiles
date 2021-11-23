@@ -45,8 +45,7 @@
 	],
 	"save_on_focus_lost": true,
 	"spell_check": true,
-	"theme": "predawn-DEV.sublime-theme",
-	"theme1": "predawn.sublime-theme",
+	"theme": "predawn.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 }
