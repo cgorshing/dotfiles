@@ -62,6 +62,11 @@
   undo = reset HEAD~
 
   recent = branch --sort=-committerdate --format="%(committerdate:relative)%09%(refname:short)"
+
+  discard = restore
+  unstage = restore --staged --
+  unstageall = restore --staged :(top) # :(top) === :/
+  # git ls-files -- ':(top)*.js' ':(top)*.json'
 [color]
   #ui = 1
   ui = auto
