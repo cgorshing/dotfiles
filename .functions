@@ -162,3 +162,14 @@ function sound-bad() {
   #afplay ~/workspaces/livestream-jamesshore/build/sounds/lint_error.mp3
   afplay ~/workspaces/livestream-jamesshore/build/sounds/fail.m4a
 }
+
+function flush-dns() {
+
+  sudo ifconfig en0 down
+  sleep 5
+
+  sudo killall -HUP mDNSResponder
+  sudo dscacheutil -flushcache
+  sudo route flush
+  sudo ifconfig en0 up
+}
