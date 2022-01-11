@@ -32,8 +32,6 @@
   co = checkout
   ci = commit
   st = status
-  br = branch
-  d = diff
   ss = status -s
   st = status
 
@@ -44,11 +42,6 @@
   one = log --pretty=format:'%h - %an, %ar : %s'
   pl = log --oneline --decorate --graph
   plall = log --oneline --decorate --all --graph
-  ds = diff --staged
-  dwd = diff --word-diff
-  dcw = diff --color-words
-  dswd = diff --staged --word-diff
-  dscw = diff --staged --color-words
 
   sw = switch
   stashall = stash --include-untracked
@@ -66,6 +59,10 @@
   discard = restore
   unstage = restore --staged --
   unstageall = restore --staged :(top) # :(top) === :/
+
+  # https://git-scm.com/docs/git-log#Documentation/git-log.txt-emGem
+  # %G? is for signature
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %G?' --abbrev-commit
   # git ls-files -- ':(top)*.js' ':(top)*.json'
 [color]
   #ui = 1
