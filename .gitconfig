@@ -62,7 +62,7 @@
 
   # https://git-scm.com/docs/git-log#Documentation/git-log.txt-emGem
   # %G? is for signature
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %G?' --abbrev-commit
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %G?' --abbrev-commit
   # git ls-files -- ':(top)*.js' ':(top)*.json'
 [color]
   #ui = 1
