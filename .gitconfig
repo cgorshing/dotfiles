@@ -4,6 +4,10 @@
   signingKey = 4413A700
 [commit]
   gpgsign = true
+[blame]
+  ignoreRevsFile = .git-blame-ignore-revs
+  markIgnoredLines = true
+  markUnblamableLines = true
 [branch]
   autoSetupMerge = always
   autoSetupRebase = always
