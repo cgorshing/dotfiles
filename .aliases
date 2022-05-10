@@ -150,8 +150,7 @@ alias df='df -h'
 alias du='du -h'
 
 # Always use color output for `ls`
-alias ls="command ls ${colorflag}"
-alias ls='ls -h'
+alias ls="command ls -h ${colorflag}"
 alias ll='ls -l'  # long list
 alias la='ls -A'  # all but . and ..
 alias l='ls -CF'
