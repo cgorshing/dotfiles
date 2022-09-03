@@ -14,7 +14,7 @@ unset targz;
 unset cdf;
 
 function tcpserver() {
-  tcpserver -B "#######\nThis is our banner\n######\n" 127.0.0.1 3333 expect -c 'expect "hello" ; send "hi\n" ; expect "bye" ; send "see you\n"'
+  command tcpserver -B "#######\nThis is our banner\n######\n" 127.0.0.1 3333 expect -c 'expect "hello" ; send "hi\n" ; expect "bye" ; send "see you\n"'
 }
 
 function server() {
@@ -41,9 +41,8 @@ function skipTests() {
 #export -f skipTests
 
 function prettyXml {
-  echo $1
-  xmllint --format $1 > $1.a_longer_extension_to_ensure_unique
-  mv $1.a_longer_extension_to_ensure_unique $1
+  xmllint --format "$1" > "$1".a_longer_extension_to_ensure_unique
+  mv "$1".a_longer_extension_to_ensure_unique "$1"
 }
 
 function turnOnRVM() {
@@ -148,7 +147,7 @@ function cleanup-directories() {
 }
 
 function compress-image() {
-  convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85% $1 "${1%.jpg}-compressed.jpg"
+  convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85% "$1" "${1%.jpg}-compressed.jpg"
 }
 
 function turnOnAutojump() {

@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Normally I install using git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 
 sudo apt-get update && sudo apt-get -y dist-upgrade
