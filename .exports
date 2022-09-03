@@ -59,8 +59,11 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   export FLUTTER_HOME=$HOME/tools/flutter_macos_1.22.2-stable
 
   # gnubin is for gnu packages (like gnu-sed/gsed)
-  export PATH=/opt/homebrew/opt/grep/libexec/gnubin:/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH:/usr/local/sbin
-  export PATH=/opt/homebrew/opt/findutils/libexec/gnubin:$PATH
+  export PATH=$(brew --prefix)/opt/grep/libexec/gnubin:$PATH
+  export PATH=$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH
+  export PATH=$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH
+  export PATH=/usr/local/sbin:$PATH
+
   export PATH=$PATH:$FLUTTER_HOME/bin
   export JAVA_HOME=`/usr/libexec/java_home -v11.0.1`
   # per https://github.com/pstadler/keybase-gpg-github
@@ -69,8 +72,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   export GPG_TTY=$(tty)
 
   # make GNU commands available
-  export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:${PATH}"
-  export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:${MANPATH}"
+  export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:${PATH}"
+  export MANPATH="$(brew --prefix)/opt/coreutils/libexec/gnuman:${MANPATH}"
+
 
   # The next line updates PATH for the Google Cloud SDK.
   if [ -f "$HOME/tools/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/tools/google-cloud-sdk/path.bash.inc"; fi
