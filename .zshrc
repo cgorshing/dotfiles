@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/cgorshing/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -76,11 +76,22 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode cp)
+
+# https://unix.stackexchange.com/questions/30168/how-to-enable-reverse-search-in-zsh
+plugins=(git vi-mode cp history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# NOTE Lots of things are set in /Users/cgorshing/.oh-my-zsh/lib/history.zsh - So unsetting some of those here
+# https://superuser.com/questions/1245273/iterm2-version-3-individual-history-per-tab
+unsetopt inc_append_history
+unsetopt share_history
+setopt append_history
+
+# I'm not using this yet, but wanted to keep it here to remind me later.
+# https://unix.stackexchange.com/questions/324623/how-to-make-oh-my-zsh-history-behavior-similar-to-bashs
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
