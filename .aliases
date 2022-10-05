@@ -49,8 +49,11 @@ GREP_OPTIONS+=" --exclude-dir=\.deps"
 GREP_OPTIONS+=" --binary-files=without-match"
 GREP_OPTIONS+=" --color=auto"
 
+# shellcheck disable=SC2139
 alias grep="grep $GREP_OPTIONS 2>/dev/null"
+# shellcheck disable=SC2139
 alias egrep="grep -E $GREP_OPTIONS"
+# shellcheck disable=SC2139
 alias fgrep="grep -F $GREP_OPTIONS"
 unset GREP_OPTIONS
 
