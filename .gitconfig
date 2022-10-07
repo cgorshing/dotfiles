@@ -46,6 +46,11 @@
   one = log --pretty=format:'%h - %an, %ar : %s'
   pl = log --oneline --decorate --graph
   plall = log --oneline --decorate --all --graph
+  ds = diff --staged
+  dwd = diff --word-diff
+  dcw = diff --color-words
+  dswd = diff --staged --word-diff
+  dscw = diff --staged --color-words
 
   sw = switch
   stashall = stash --include-untracked
@@ -57,6 +62,7 @@
 
   # From https://twitter.com/rakyll/status/1311479159936311299
   undo = reset HEAD~
+  # undo = reset --soft HEAD^
 
   recent = branch --sort=-committerdate --format="%(committerdate:relative)%09%(refname:short)"
 
@@ -64,10 +70,25 @@
   unstage = restore --staged --
   unstageall = restore --staged :(top) # :(top) === :/
 
+  # git ls-files -- ':(top)*.js' ':(top)*.json'
+
   # https://git-scm.com/docs/git-log#Documentation/git-log.txt-emGem
   # %G? is for signature
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %G?' --abbrev-commit
-  # git ls-files -- ':(top)*.js' ':(top)*.json'
+  # lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %G?' --abbrev-commit
+  lg = "!f() { \
+    git log --all --color --graph --pretty=format:'%C(bold yellow)<sig>%G?</sig>%C(reset) %C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(blue)<%an>%C(reset)' | \
+    sed \
+    -e 's#<sig>G</sig>#Good#' \
+    -e 's#<sig>B</sig>#\\nBAD \\nBAD \\nBAD \\nBAD \\nBAD#' \
+    -e 's#<sig>U</sig>#Unknown#' \
+    -e 's#<sig>X</sig>#Expired#' \
+    -e 's#<sig>Y</sig>#Expired Key#' \
+    -e 's#<sig>R</sig>#Revoked#' \
+    -e 's#<sig>E</sig>#Missing Key#' \
+    -e 's#<sig>N</sig>#None#' | \
+    less -r; \
+  }; f"
+  one = log --show-signature -1
 [color]
   #ui = 1
   ui = auto
@@ -83,6 +104,7 @@
   auto = 1
 [push]
   default = simple
+  autoSetupRemote = true
 [fetch]
   prune = true
 [rebase]
