@@ -12,8 +12,8 @@ sudo apt install -y postgresql postgresql-contrib
 sudo apt install -y inotify-tools
 
 # The asdf-vm default jq plugin (from focused labs) works fine on macos but is broken for linux, using another one
-asdf plugin add jq https://github.com/AZMCode/asdf-jq.git
-asdf plugin update jq patch-1
+asdf plugin add jq https://github.com/AZMCode/asdf-jq.git # Update 2023-01-08 This is still accurate https://github.com/asdf-vm/asdf-plugins
+asdf plugin update jq patch-1 # 2023-01-08 Don't think this is needed anymore. Not using it on the WSL instances anymore
 
 asdf plugin add deno
 asdf plugin add elixir
