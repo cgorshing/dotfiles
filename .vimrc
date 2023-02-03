@@ -1,6 +1,6 @@
 "source $VIM/_vimrc
 
-execute pathogen#infect()
+" execute pathogen#infect() Not needed anymore with VIM's new package system (as of v8?)
 
 " autocmd vimenter * NERDTree
 
