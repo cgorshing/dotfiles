@@ -60,9 +60,13 @@
   branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
   remotes = remote --verbose
 
-  # From https://twitter.com/rakyll/status/1311479159936311299
+  # From
+  # https://twitter.com/rakyll/status/1311479159936311299
+  # https://twitter.com/sigfpe/status/1392645506497585156
+  # https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git
   undo = reset HEAD~
   # undo = reset --soft HEAD^
+  # undo = reset HEAD^
 
   recent = branch --sort=-committerdate --format="%(committerdate:relative)%09%(refname:short)"
 
