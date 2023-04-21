@@ -4,7 +4,9 @@ Turn this into a loop and possibly backup file before removing.
 Maybe check if it is softlink or not.
 
 
-for file in .curlrc .gitconfig .gitignore .path .bash_prompt .exports .aliases .functions .extra .irbrc .tool-versions .vimrc .zprofile .zshrc; do
+if [[ -f ~/.profile ]]; then mv ~/.profile ~/.profile.orig; fi
+
+for file in .curlrc .gitconfig .gitignore .path .bash_profile .bash_prompt .exports .aliases .functions .extra .irbrc .tool-versions .vimrc .zprofile .zshrc; do
   [[ -f ~/$file ]] && mv ~/$file ~/$file.backup
 
   ln -s ~/workspaces/dotfiles/$file ~/$file
