@@ -22,8 +22,6 @@ function server() {
   node --eval "$script"
 }
 
-function turnOnCHEF() {
-  eval "$(chef shell-init bash)"
 }
 
 function turnOnNVM() {
