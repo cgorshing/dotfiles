@@ -231,7 +231,7 @@ alias docker-network-query="docker inspect -f '{{range .NetworkSettings.Networks
 
 alias please='sudo $(fc -ln -1)'
 
-alias ipinfo='curl ipinfo.io/$(curl -s https://api.myip.com | jq -r ".ip")'
+alias ipinfo='curl -s http://ip-api.com/json | jq -r "."'
 
 # From https://github.com/nickjj/dotfiles/blob/master/.aliases
 # Need to look at the dev config file this brings in
