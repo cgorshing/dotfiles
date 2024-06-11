@@ -189,3 +189,8 @@ function flush-dns() {
   sudo route flush
   sudo ifconfig en0 up
 }
+
+function cleanup-gradle() {
+  find ~/.gradle -type f -atime +30 -delete
+  find ~/.gradle -mindepth 1 -type d -empty -delete
+}
