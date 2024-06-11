@@ -23,7 +23,20 @@ export LC_ALL='en_US.UTF-8';
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
-  PATH=$HOME/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin
+  if [[ "$WSL2" == "1" ]]; then
+    # I don't want to do anything with the path
+    # because primarily I want to be able to have "code ." available
+    # and I need that in the path in order to work
+    # You can also change the path behavior by editing /etc/wsl.conf
+    # with:
+    # [interop]
+    # appendWindowsPath = true/false
+    echo 'We are in a WSL2 distro, not changing the path'
+
+    PATH=$HOME/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin:$PATH
+  else
+    PATH=$HOME/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin
+  fi
 
   if [ -d "$HOME/.local/bin" ] ; then
       PATH="$HOME/.local/bin:$PATH"

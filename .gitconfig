@@ -4,6 +4,11 @@
   signingKey = 4413A700
 [commit]
   gpgsign = true
+[diff]
+  algorithm = histogram
+  # myers (default I think), minimal, patience, histogram
+
+
 [blame]
   ignoreRevsFile = .git-blame-ignore-revs
   markIgnoredLines = true
@@ -93,6 +98,9 @@
     less -r; \
   }; f"
   one = log --show-signature -1
+
+  # authors = shortlog -e -s -n --all --no-merges
+  authors = shortlog -e -s -n
 [color]
   #ui = 1
   ui = auto
