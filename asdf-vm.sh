@@ -3,23 +3,34 @@
 # Normally I install using git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 
 sudo apt-get update && sudo apt-get -y dist-upgrade
-sudo apt install -y build-essential automake autoconf libssl-dev libncurses5-dev zlib1g-dev zip
+
+# sqlite3 is needed for asdf install python (some python packages need it)
+sudo apt install -y build-essential automake autoconf libssl-dev libncurses5-dev zlib1g zlib1g-dev zip libbz2-dev libsqlite3-dev liblzma-dev libreadline8 libreadline-dev wget curl libyaml-dev libffi-dev
+# "libyaml-dev" is needed for ruby
+# I don't remember why I needed "llvm"
+# "libffi-dev" is needed to prevent this when installing python (w/ASDF) and Ansible
+# WARNING: The Python ctypes extension was not compiled. Missing the libffi lib
+# "inotify-tools" for phoenix live-reload
+
+plocate
+
+
+# sudo apt-get update; sudo apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 # TODO Do I want to do this?
 sudo apt install -y postgresql postgresql-contrib
 
-# For phoenix live-reload
-sudo apt install -y inotify-tools
-
+# NOTE Just use the OS package manager for jq
+# ASDF Seems to have some issues with what git repo to use for jq - I've seen 3 different ones
 # The asdf-vm default jq plugin (from focused labs) works fine on macos but is broken for linux, using another one
-asdf plugin add jq https://github.com/AZMCode/asdf-jq.git # Update 2023-01-08 This is still accurate https://github.com/asdf-vm/asdf-plugins
-asdf plugin update jq patch-1 # 2023-01-08 Don't think this is needed anymore. Not using it on the WSL instances anymore
+# asdf plugin add jq https://github.com/AZMCode/asdf-jq.git # Update 2023-01-08 This is still accurate https://github.com/asdf-vm/asdf-plugins
+# asdf plugin update jq patch-1 # 2023-01-08 Don't think this is needed anymore. Not using it on the WSL instances anymore
 
-asdf plugin add deno
+# asdf plugin add deno
 asdf plugin add elixir
 asdf plugin add erlang
 asdf plugin add golang
-asdf plugin add kotlin
+# asdf plugin add kotlin
 asdf plugin add nodejs
 asdf plugin add python
 asdf plugin add ruby
@@ -39,10 +50,6 @@ asdf install python 3.8.5
 asdf install ruby   2.7.1
 asdf install rust   1.45.2
 
-
-#WARNING: The Python bz2 extension was not compiled. Missing the bzip2 lib?
-#WARNING: The Python readline extension was not compiled. Missing the GNU readline lib?
-#WARNING: The Python sqlite3 extension was not compiled. Missing the SQLite3 lib?
 
 # ~/.tool-version
 #elixir 1.10.4-otp-23
