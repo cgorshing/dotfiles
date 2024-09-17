@@ -153,6 +153,10 @@ function update-asdf() {
   asdf plugin update --all
 }
 
+function update-system() {
+  sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
+}
+
 function cleanup-docker() {
   docker system prune -a
   docker volume prune
