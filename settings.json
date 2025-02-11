@@ -51,9 +51,6 @@
     "editor.tabSize": 2
   },
 
-  "latex-workshop.docker.enabled": true,
-  "latex-workshop.docker.image.latex": "koppor/texlive",
-
   "[markdown]": {
     "files.trimTrailingWhitespace": false
   },
