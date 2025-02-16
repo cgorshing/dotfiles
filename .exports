@@ -40,6 +40,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     PATH=$HOME/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin
   fi
 
+  if [ -d "/snap/bin" ] ; then
+      PATH="$PATH:/snap/bin"
+  fi
+
   if [ -d "$HOME/.local/bin" ] ; then
       PATH="$HOME/.local/bin:$PATH"
   fi
@@ -65,8 +69,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH=$PATH:$HOME/tools/terraform_0.6.16_darwin_amd64
   export PATH=$PATH:$HOME/bin
   export PATH=$PATH:$HOME/tools/apache-maven-3.5.0/bin
-  export GRADLE_HOME=$HOME/tools/gradle-5.2.1
-  export GROOVY_HOME=$HOME/tools/groovy-2.4.12
 
   POSTGRES_HOME=/Applications/Postgres.app/Contents/Versions/latest
   export PATH=$PATH:$POSTGRES_HOME/bin
@@ -116,8 +118,6 @@ else
   :
 fi
 
-export PATH=$PATH:$GRADLE_HOME/bin:$GROOVY_HOME/bin
-
 # Careful git uses LESS
 # https://stackoverflow.com/questions/48341920/git-branch-command-behaves-like-less
 
@@ -127,8 +127,6 @@ export PATH=$PATH:$GRADLE_HOME/bin:$GROOVY_HOME/bin
 #export LESSOPEN='| /usr/local/etc/source-highlight-esc.sh %s'
 
 export LESS="--quit-if-one-screen --RAW-CONTROL-CHARS --LONG-PROMPT --shift 5 --chop-long-lines "
-
-export PATH="$HOME/bin:$PATH";
 
 # WSL 2 specific settings
 if grep -q "microsoft" /proc/version &>/dev/null; then

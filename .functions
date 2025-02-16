@@ -71,6 +71,10 @@ function update-brew() {
   # echo 'Not doing "brew prune" anymore - cause it is deprecated'
 }
 
+function update-system() {
+  sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
+}
+
 function update-upstream() {
   git fetch upstream
   git switch master
@@ -95,10 +99,20 @@ function update-gems() {
 }
 
 function turnOnASDF() {
-  . "$HOME"/.asdf/asdf.sh
-  . "$HOME"/.asdf/completions/asdf.bash
-  update-asdf
-  asdf current
+  # . "$HOME"/.asdf/asdf.sh
+  # . "$HOME"/.asdf/completions/asdf.bash
+  if [[ -z "$ASDF_DATA_DIR" ]]; then
+    export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=.tool-versions
+    export ASDF_DATA_DIR=/home/cgorshing/.asdf
+    export ASDF_CONFIG_FILE=/home/cgorshing/.asdfrc
+    export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+    export PATH="$HOME/.asdf/bin:$PATH"
+    . <(asdf completion bash)
+    asdf current
+    # asdf info
+  else
+    echo "asdf-vm has already been turned on"
+  fi
 }
 
 function turnOnVENV() {
@@ -146,11 +160,6 @@ function update-pip() {
 
 function update-npm() {
   npm install -g npm
-}
-
-function update-asdf() {
-  asdf update
-  asdf plugin update --all
 }
 
 function update-system() {

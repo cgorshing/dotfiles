@@ -1,0 +1,78 @@
+These are some simple things to get establish a baseline. I have more things in Ansible
+
+sudo apt install locales
+
+# Uncomment en_US.UTF-8 for inclusion in generation
+sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen
+
+# Generate locale
+locale-gen
+
+Restart then continue with the rest of the script
+
+wget asdf-vm
+Move the binary to ~/.asdf/bin
+
+
+
+
+# Need to figure out what we need for bootstrap purposes and leave the rest to Ansible.
+# I'd rather not 100% duplicate this in Ansible, but wouldn't be the end of the world.
+# Oh - I use this array so I can use comments inline
+args=(
+  curl
+  vim 
+  wget 
+  zip
+
+  build-essential
+  autoconf 
+  automake
+  inotify-tools # for phoenix live-reload
+  libbz2-dev 
+  libffi-dev     # to prevent this when installing python (w/ASDF) and Ansible WARNING: The Python ctypes extension was not compiled. Missing the libffi lib
+  liblzma-dev 
+  libncurses5-dev 
+  libreadline8 
+  libreadline-dev 
+  libsqlite3-dev 
+  libssl-dev 
+  libxml2-dev
+  libyaml-dev  # "libyaml-dev" is needed for ruby
+  sqlite3      # for asdf install python (some python packages need it)
+  zlib1g 
+  zlib1g-dev 
+)
+sudo apt-get update && sudo apt install -y "${args[@]}" && sudo apt-get -y dist-upgrade
+
+
+# I don't remember why I needed "llvm"
+# sudo apt-get install --no-install-recommends make llvm xz-utils tk-dev libxmlsec1-dev
+
+# I am playing around with bash-builtins - don't know if this is valuable yet for me or not, but might be something worth adding to provisioning.
+
+# I now run postgres in podman
+# sudo apt install -y postgresql postgresql-contrib
+
+# NOTE Just use the OS package manager for jq
+# ASDF Seems to have some issues with what git repo to use for jq - I've seen 3 different ones
+# The asdf-vm default jq plugin (from focused labs) works fine on macos but is broken for linux, using another one
+# asdf plugin add jq https://github.com/AZMCode/asdf-jq.git # Update 2023-01-08 This is still accurate https://github.com/asdf-vm/asdf-plugins
+# asdf plugin update jq patch-1 # 2023-01-08 Don't think this is needed anymore. Not using it on the WSL instances anymore
+
+# For nodejs - I needed to add gpg keys see https://github.com/asdf-vm/asdf-nodejs
+# bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
+asdf plugin add python
+asdf plugin add erlang
+asdf plugin add elixir
+asdf plugin add nodejs
+
+asdf plugin add ruby
+asdf plugin add golang
+asdf plugin add rust
+asdf plugin add zig
+
+# asdf plugin add deno
+# asdf plugin add kotlin
+
+Now move to settings up dotfiles and Ansible
