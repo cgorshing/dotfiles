@@ -1,5 +1,8 @@
 These are some simple things to get establish a baseline. I have more things in Ansible
 
+I don't use this on every machine, but for a VM that is running in VMWare on my laptop, then I turned off the password prompt
+if [ -z "$(sudo grep 'cgorshing' /etc/sudoers )" ]; then echo "cgorshing ALL=(ALL) NOPASSWD:ALL # Run all commands w/out a password prompt" | sudo EDITOR='tee -a' visudo; fi;
+
 sudo apt install locales
 
 # Uncomment en_US.UTF-8 for inclusion in generation
