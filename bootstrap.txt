@@ -6,51 +6,46 @@ if [ -z "$(sudo grep 'cgorshing' /etc/sudoers )" ]; then echo "cgorshing ALL=(AL
 sudo apt install locales
 
 # Uncomment en_US.UTF-8 for inclusion in generation
-sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen
-
-# Generate locale
-locale-gen
+sudo sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen && sudo locale-gen
 
 Restart then continue with the rest of the script
-
-wget asdf-vm
-Move the binary to ~/.asdf/bin
-
-
-
 
 # Need to figure out what we need for bootstrap purposes and leave the rest to Ansible.
 # I'd rather not 100% duplicate this in Ansible, but wouldn't be the end of the world.
 # Oh - I use this array so I can use comments inline
 args=(
   curl
-  vim 
-  wget 
+  vim
+  wget
   zip
 
   build-essential
-  autoconf 
+  autoconf
   automake
   inotify-tools # for phoenix live-reload
-  libbz2-dev 
+  libbz2-dev
   libffi-dev     # to prevent this when installing python (w/ASDF) and Ansible WARNING: The Python ctypes extension was not compiled. Missing the libffi lib
-  liblzma-dev 
-  libncurses5-dev 
-  libreadline8 
-  libreadline-dev 
-  libsqlite3-dev 
-  libssl-dev 
+  liblzma-dev
+  libncurses5-dev
+  libreadline8
+  libreadline-dev
+  libsqlite3-dev
+  libssl-dev
   libxml2-dev
   libyaml-dev  # "libyaml-dev" is needed for ruby
   sqlite3      # for asdf install python (some python packages need it)
-  zlib1g 
-  zlib1g-dev 
+  zlib1g
+  zlib1g-dev
 )
-sudo apt-get update && sudo apt install -y "${args[@]}" && sudo apt-get -y dist-upgrade
+sudo apt-get update && sudo apt install -y "${args[@]}" && sudo apt-get -y dist-upgrade && sudo shutdown -r now
 
 
 # I don't remember why I needed "llvm"
 # sudo apt-get install --no-install-recommends make llvm xz-utils tk-dev libxmlsec1-dev
+
+wget asdf-vm
+Move the binary to ~/.asdf/bin
+
 
 # I am playing around with bash-builtins - don't know if this is valuable yet for me or not, but might be something worth adding to provisioning.
 
