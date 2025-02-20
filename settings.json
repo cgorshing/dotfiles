@@ -55,17 +55,47 @@
     "files.trimTrailingWhitespace": false
   },
 
-  "python.showStartPage": false,
-  "python.languageServer": "Pylance",
+  "pylint.args": [
+    // "--disable=C0114", // missing-module-docstring
+    // "--disable=C0115", // missing-class-docstring
+    // "--disable=C0116", // missing-function-docstring
+    // "--disable=C0111", // No longer used, renamed to the 3 above
 
+
+    "disable=missing-module-docstring",
+    "disable=missing-class-docstring",
+    "disable=missing-function-docstring",
+    // "--errors-only"
+  ],
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.tabSize": 4,
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+
+      "source.organizeImports":"always",
+
+      "python.analysis.autoImportCompletions":"always",
+
+      "source.unusedImports": "always",
+      "source.convertImportFormat": "always"
+    },
+  },
+  "python.languageServer": "Pylance",
+  "python.testing.pytestEnabled": true, // Can also be unittest, if both are enabled, then pytest is favored
+  // "python.experiments.optOutFrom": ["pythonTestAdapter"],
+  "python.experiments.optInto": ["pythonTestAdapter"],
+  "isort.args":["--profile", "black"],
 
   "window.zoomLevel": 1,
-  "workbench.colorTheme": "Default Dark+",
-  "workbench.editorAssociations": [
-    {
-      "filenamePattern": "*.ipynb",
-      "viewType": "jupyter.notebook.ipynb"
-    }
-  ],
-  "workbench.iconTheme": "vscode-icons"
+  "workbench.colorTheme": "Material Theme Darker",
+  "workbench.editorAssociations": {
+     "*.ipynb": "jupyter-notebook",
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "remote.SSH.remotePlatform": {
+    "trial1": "linux",
+    "ubuntutrial": "linux"
+  }
 }
