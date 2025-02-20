@@ -66,6 +66,7 @@ function turnOnRVM() {
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 }
 
+# shellcheck disable=SC2317
 function update-brew() {
   brew update && brew upgrade && echo 'Now sleeping....' && sleep 1 && echo 'brew cleanup:' && brew cleanup && echo 'sleeping again....' && sleep 1 && echo 'brew cleanup --prune-prefix' && brew cleanup --prune-prefix
   # echo 'Not doing "brew prune" anymore - cause it is deprecated'
@@ -203,7 +204,15 @@ function flush-dns() {
   sudo ifconfig en0 up
 }
 
+function restore-static-web() {
+ git restore static/web
+}
+
 function cleanup-gradle() {
   find ~/.gradle -type f -atime +30 -delete
   find ~/.gradle -mindepth 1 -type d -empty -delete
+}
+
+function unlock() {
+  chflags -R nouchg $1
 }
