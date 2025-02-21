@@ -14,6 +14,11 @@ IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:ECHO_ON_ASSIGNMENT] = true
 
 
+# https://stackoverflow.com/questions/70505085/disable-irb-autocomplete
+# When initially released, was a little buggy
+# Maybe it will be better by the time I use it :)
+IRB.conf[:USE_AUTOCOMPLETE] = false
+
 IRB.conf[:PROMPT][:MY_PROMPT] = { # name of prompt mode
   :AUTO_INDENT => true,           # enables auto-indent mode
   :PROMPT_I =>  ">> ",            # simple prompt
