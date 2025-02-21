@@ -74,3 +74,21 @@ asdf plugin add zig
 # asdf plugin add kotlin
 
 Now move to settings up dotfiles and Ansible
+
+
+### WSL
+I haven't set up a new WSL instance in a while. So these notes are rough and not to be fully followed.
+
+Just jotting this down so I have a starting point
+
+I don't know if this is still needed anymore. But used to be some differences/changes needed for path to work
+Mainly keeping "code ." working while in a WSL instance.
+/etc/wsl.conf -> appendWindowsPath
+
+myUsername=<what ever you want>
+adduser -G wheel $myUsername
+echo -e "[user]\ndefault=$myUsername" >> /etc/wsl.conf
+passwd $myUsername
+
+rsync -av --chmod=Du=rwx,Dg=,Do=,Fu=r,Fg=,Fo= /mnt/c/Users/<username>/.ssh/ ~/.ssh/
+ln -s /mnt/c/Users/<username>/workspaces ~/workspaces
