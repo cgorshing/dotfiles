@@ -4,9 +4,12 @@
   signingKey = 4413A700
 [commit]
   gpgsign = true
+[tag]
+  forceSignAnnotated = true
 [diff]
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-codediffalgorithmcode
+  # myers (default), minimal, patience, histogram
   algorithm = histogram
-  # myers (default I think), minimal, patience, histogram
 
 
 [blame]
