@@ -1,0 +1,37 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "ctrl+alt+]",
+    "command": "github.copilot.nextPanelSolution",
+    "when": "github.copilot.activated && github.copilot.panelVisible"
+  },
+  {
+    "key": "alt+]",
+    "command": "-github.copilot.nextPanelSolution",
+    "when": "github.copilot.activated && github.copilot.panelVisible"
+  },
+
+  {
+    "key": "ctrl+/",  // whatever keybindings you want
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "editor.action.commentLine",
+        "cursorDown"
+      ]
+    },
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+alt+A",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "editor.action.blockComment",
+        "cursorDown"
+      ]
+    },
+    "when": "editorTextFocus"
+  }
+
+]

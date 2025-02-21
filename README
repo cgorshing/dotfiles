@@ -1,9 +1,5 @@
 My dotfiles
 
-Turn this into a loop and possibly backup file before removing.
-Maybe check if it is softlink or not.
-
-
 if [[ -f ~/.profile ]]; then mv ~/.profile ~/.profile.orig; fi
 
 for file in .curlrc .gitconfig .gitignore .path .bash_profile .bash_prompt .exports .aliases .functions .extra .irbrc .tool-versions .vimrc .zprofile .zshrc; do
@@ -15,3 +11,18 @@ done;
 For VSCode
 [[ -f ~/Library/Application\ Support/Code/User/settings.json ]] && mv ~/Library/Application\ Support/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json.backup
 ln -s ~/workspaces/dotfiles/settings.json ~/Library/Application\ Support/Code/User/settings.json
+[[ -f ~/Library/Application\ Support/Code/User/keybindings.json ]] && mv ~/Library/Application\ Support/Code/User/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json.backup
+ln -s ~/workspaces/dotfiles/vscode-keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+
+Links for workspaces
+mklink /D %USERPROFILE%\workspaces D:\%USERNAME%\workspaces
+mklink /D %USERPROFILE%\.ssh D:\%USERNAME%\workspaces\.ssh
+mklink %APPDATA%\Code\User\keybindings.json D:\%USERNAME%\workspaces\dotfiles\vscode-keybindings.json
+mklink %USERPROFILE%\.gitignore D:\%USERNAME%\workspaces\dotfiles\.gitignore
+mklink %USERPROFILE%\.irbrc D:\%USERNAME%\workspaces\dotfiles\.irbrc
+
+
+Firefox config
+browser.ctrlTab.sortByRecentlyUsed -> true
+browser.ctrlTab.previews -> true
+
