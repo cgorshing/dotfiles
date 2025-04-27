@@ -3,7 +3,7 @@
 # Some of these have been taken from https://github.com/mathiasbynens/dotfiles
 
 export HISTCONTROL=ignoreboth
-export PROMPT_COMMAND="history -a"
+#export PROMPT_COMMAND="history -a"
 export HISTSIZE=100000
 export HISTFILESIZE=100000
 #export HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:   "

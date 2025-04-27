@@ -65,7 +65,9 @@ asdf plugin add erlang
 asdf plugin add elixir
 asdf plugin add nodejs
 
-asdf plugin add ruby
+asdf plugin add ruby # Needed for jekyll primarily - I use Ruby 3.3 because that is what the github-pages gem uses 
+https://github.com/github/pages-gem/blob/master/.ruby-version
+
 asdf plugin add golang
 asdf plugin add rust
 asdf plugin add zig
@@ -92,3 +94,9 @@ passwd $myUsername
 
 rsync -av --chmod=Du=rwx,Dg=,Do=,Fu=r,Fg=,Fo= /mnt/c/Users/<username>/.ssh/ ~/.ssh/
 ln -s /mnt/c/Users/<username>/workspaces ~/workspaces
+
+Neovim
+python -m pip install pyright
+~/tools/elixir-ls-built/
+~/tools/lua-language-server-3.13.5-linux-x64/bin
+~/tools/nvim-linux-x86_64/bin
