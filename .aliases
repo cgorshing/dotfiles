@@ -239,7 +239,6 @@ alias jek="RUBYOPT='-W0' bundle exec jekyll serve --config _config.yml,_config.d
 
 alias weather='curl http://wttr.in'
 
-alias cat='batcat -A '
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # TODO asdf-vm has corretto support (corretto-16.0.1.9.1 down to corretto-8.292.10.1)
@@ -252,6 +251,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias ij='open -b com.jetbrains.intellij'
   alias sl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
   alias sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+  alias cat='bat -A '
+else
+  alias cat='batcat -A '
 fi
 
 alias k=kubectl
