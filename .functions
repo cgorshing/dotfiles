@@ -138,8 +138,6 @@ function build-venv() {
       python -m pip install pyclean && \
       python -m pip install pylint-django && \
       python -m pip install behave && \
-      #python -m pip install django-test-migrations && \
-      #python -m pip install django-debug-toolbar==3.2.4 && \
       python -m pip install pylint && \
       python -m pip install pur && \
       python -m pip install pre-commit && \
