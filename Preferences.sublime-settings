@@ -18,12 +18,14 @@
 	"caret_style": "solid",
 	"color_scheme": "Packages/Predawn/predawn.tmTheme",
 	"fade_fold_buttons": false,
+	"font_face": "Berkeley Mono",
 	"font_size": 14,
 	"highlight_line": true,
 	"ignored_packages":
 	[
 		"Vintage",
 	],
+	"index_files": false,
 	"open_files_in_new_window": false,
 	"predawn_findreplace_small": false,
 	"predawn_quick_panel_small": false,
