@@ -91,7 +91,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH=/usr/local/sbin:$PATH
 
   export PATH=$PATH:$FLUTTER_HOME/bin
-  export JAVA_HOME=$(/usr/libexec/java_home -v11.0.1)
+
   # per https://github.com/pstadler/keybase-gpg-github
   # Avoid issues with `gpg` as installed via Homebrew.
   # https://stackoverflow.com/a/42265848/96656
