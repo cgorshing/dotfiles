@@ -1,13 +1,20 @@
+# "brew bundle dump" creates this file
+
 # autoconf and automake are needed for building some packages from source,
 # primarily through asdf-vm
 
+I used pre-commit years ago, not sure if I want to keep using it or not
 
+mkcert and nss are needed for https localhost dev work (nss is only needed for firefox)
+
+I need to figure out where/how to keep track of comments. Becuase for libyaml, there are some comments I want to keep track of.
+For libyaml, this is the same on Linux and Mac
+# libyaml is needed to install ruby with asdf https://github.com/rbenv/ruby-build/discussions/2012
 
 
 
 # Install with "brew bundle"
 tap "homebrew/bundle"
-tap "homebrew/core"
 brew "ack"
 brew "asdf"
 brew "autoconf"
