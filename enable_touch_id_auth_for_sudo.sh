@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# I can't remember where I got this script initially, but I did have this in my notes.
+# https://mastodon.social/@StrangeNoises/110910261899874868 - /etc/pam.d/sudo_local.template
+
 # This script is designed to enable Touch ID authentication for sudo on macOS Sonoma 
 # 14.x and later. It does this by copying the following file, which is a template file
 # which contains the correct command:
