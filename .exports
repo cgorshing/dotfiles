@@ -67,6 +67,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 
   export PATH=$PATH:$HOME/local/bin:$HOME/tools
 
+  # https://gist.github.com/christopheranderton/8644743
+  export HOMEBREW_GITHUB_API_TOKEN=<fill in with your token>
+  
+
   export LIQUIBASE_HOME=/usr/local/opt/liquibase/libexec
   export PATH=$PATH:$HOME/tools/toggl-cli
   export PATH=$PATH:$HOME/tools/terraform_0.6.16_darwin_amd64
