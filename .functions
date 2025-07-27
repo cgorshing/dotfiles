@@ -216,3 +216,15 @@ function cleanup-gradle() {
 function unlock() {
   chflags -R nouchg "$1"
 }
+
+# Show active network interfaces
+# alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+# I had this as an alias, but the quoting was too much
+# https://unix.stackexchange.com/questions/103241/how-to-use-ifconfig-to-show-active-interface-only
+function ifactive {
+  ifconfig -a | awk 'BEGIN { print_it = 0 }
+  /status: active/ { print_it = 1 }
+  /^($|[^\t])/     { if(print_it) print buffer; buffer = $0; print_it = 0 }
+  /^\t/            { buffer = buffer "\n" $0 }
+  END              { if(print_it) print buffer }'
+}
