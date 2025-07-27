@@ -68,7 +68,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH=$PATH:$HOME/local/bin:$HOME/tools
 
   # https://gist.github.com/christopheranderton/8644743
-  export HOMEBREW_GITHUB_API_TOKEN=<fill in with your token>
+  export HOMEBREW_GITHUB_API_TOKEN=fill in with your token
   
 
   export LIQUIBASE_HOME=/usr/local/opt/liquibase/libexec
