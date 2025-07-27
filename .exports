@@ -101,6 +101,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   export MANPATH="$(brew --prefix)/opt/coreutils/libexec/gnuman:${MANPATH}"
 
 
+  if [ -d "$HOME/.local/bin" ] ; then
+      PATH="$HOME/.local/bin:$PATH"
+  fi
+
   # The next line updates PATH for the Google Cloud SDK.
   if [ -f "$HOME/tools/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/tools/google-cloud-sdk/path.bash.inc"; fi
 
