@@ -8,7 +8,32 @@ sudo apt install locales
 # Uncomment en_US.UTF-8 for inclusion in generation
 sudo sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen && sudo locale-gen
 
+# NOTE! I have seen others where the locale-gen is passed arguments ... does this work?
+locale-gen "en_US.UTF-8"
+locale-gen en_US en_US.UTF-8
+
+
 Restart then continue with the rest of the script
+
+
+
+# TODO On MacOS, most/all of these are managed by Brewfile. Need to reconcile
+# this a bit more with homebrew and maybe have it in one spot
+
+sudo apt install -y                          make zlib1g-dev liblzma-dev
+# sudo apt-get install --no-install-recommends  wget curl llvm xz-utils tk-dev libxml2-dev libxmlsec1-dev
+
+
+
+# NOTE Just use the OS package manager for jq
+# ASDF Seems to have some issues with what git repo to use for jq - I've seen 3 different ones
+# The asdf-vm default jq plugin (from focused labs) works fine on macos but is broken for linux, using another one
+# asdf plugin add jq https://github.com/AZMCode/asdf-jq.git # Update 2023-01-08 This is still accurate https://github.com/asdf-vm/asdf-plugins
+# asdf plugin update jq patch-1 # 2023-01-08 Don't think this is needed anymore. Not using it on the WSL instances anymore
+
+
+
+
 
 # Need to figure out what we need for bootstrap purposes and leave the rest to Ansible.
 # I'd rather not 100% duplicate this in Ansible, but wouldn't be the end of the world.
@@ -32,7 +57,7 @@ args=(
   libsqlite3-dev
   libssl-dev
   libxml2-dev
-  libyaml-dev  # "libyaml-dev" is needed for ruby
+  libyaml-dev  # needed for ruby
   sqlite3      # for asdf install python (some python packages need it)
   zlib1g
   zlib1g-dev
