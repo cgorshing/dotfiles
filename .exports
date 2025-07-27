@@ -86,6 +86,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH=$(brew --prefix)/opt/grep/libexec/gnubin:$PATH
   export PATH=$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH
   export PATH=$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH
+  export PATH=$(brew --prefix)/opt/gawk/libexec/gnubin:$PATH
   export PATH=$(brew --prefix)/opt/curl/bin:$PATH
   export PATH=/usr/local/sbin:$PATH
 
