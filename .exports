@@ -138,7 +138,7 @@ fi
 # From https://gist.github.com/karolyi/ad020e676e989678d16e
 #export LESSOPEN='| /usr/local/etc/source-highlight-esc.sh %s'
 
-export LESS="--quit-if-one-screen --RAW-CONTROL-CHARS --LONG-PROMPT --shift 5 --chop-long-lines "
+# export LESS="--quit-if-one-screen --RAW-CONTROL-CHARS --LONG-PROMPT --shift 5 --chop-long-lines "
 
 # WSL 2 specific settings
 if grep -q "microsoft" /proc/version &>/dev/null; then
