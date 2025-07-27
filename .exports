@@ -3,6 +3,9 @@
 # Some of these have been taken from https://github.com/mathiasbynens/dotfiles
 
 export HISTCONTROL=ignoreboth
+# ignoredups:ignorespace:erasedups
+
+# zsh alias `history` to omz_history defined in /Users/cgorshing/.oh-my-zsh/lib/history.zsh to fc -l
 #export PROMPT_COMMAND="history -a"
 export HISTSIZE=100000
 export HISTFILESIZE=100000
