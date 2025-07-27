@@ -104,13 +104,16 @@ function turnOnASDF() {
   # . "$HOME"/.asdf/completions/asdf.bash
   if [[ -z "$ASDF_DATA_DIR" ]]; then
     export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=.tool-versions
-    export ASDF_DATA_DIR=/home/cgorshing/.asdf
-    export ASDF_CONFIG_FILE=/home/cgorshing/.asdfrc
+    export ASDF_DATA_DIR=$HOME/.asdf
+    export ASDF_CONFIG_FILE=$HOME/.asdfrc
     export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-    export PATH="$HOME/.asdf/bin:$PATH"
+
+    # This is not needed on my MacOS because asdf is now
+    # managed by homebrew.
+    # How do I have it on the linux boxes and WSL?
+    # export PATH="$HOME/.asdf/bin:$PATH"
     . <(asdf completion bash)
     asdf current
-    # asdf info
   else
     echo "asdf-vm has already been turned on"
   fi
