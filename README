@@ -22,7 +22,6 @@ mklink %USERPROFILE%\.gitignore D:\%USERNAME%\workspaces\dotfiles\.gitignore
 mklink %USERPROFILE%\.irbrc D:\%USERNAME%\workspaces\dotfiles\.irbrc
 
 
-Firefox config
+Firefox about:config
 browser.ctrlTab.sortByRecentlyUsed -> true
 browser.ctrlTab.previews -> true
-
