@@ -1,7 +1,8 @@
 code --list-extensions
 
-for f in `cat extensions.txt`; do code --install-extension "$f"; done
+for f in `cat vscode-extensions.list`; do code --install-extension "$f"; done
 
+cat vscode-extensions.list | xargs -L 1 code --install-extension
 
 alefragnani.Bookmarks
 alefragnani.numbered-bookmarks
