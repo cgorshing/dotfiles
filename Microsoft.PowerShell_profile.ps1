@@ -67,7 +67,7 @@ function list-snapnodes {
   (aws ssm describe-instance-information --no-paginate --filters Key=tag:STORE_NUMBER,Values=$store_number | ConvertFrom-Json).InstanceInformationList | Where-Object {$_.PlatformType -eq 'Linux'}
 }
 function snap_session {
-  $store_number = $args[0] | ForEach-Object67 tostring 00000
+  $store_number = $args[0] | ForEach-Object tostring 00000
   $node_name    = $args[1]
 
   Write-Host "Connect using: snap_session 1234 snap-1"
@@ -173,6 +173,9 @@ function which ($command) {
     Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 }
 
+function paths() {
+  ($env:Path).Split(';') | Sort-Object -Unique
+}
 
 
 Set-PSReadLineKeyHandler -Key Ctrl+Shift+Enter `
