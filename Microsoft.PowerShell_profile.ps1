@@ -22,6 +22,89 @@ If ([bool]($env:WT_Session)) {
   Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $Function:OnViModeChange
 }
 
+function pyserver {
+  param (
+    [parameter(Mandatory=$false)][ValidateRange(1096, [int]::MaxValue)][Int]$port = 8000
+  )
+  # in python 3, SimpleHTTPServer has been merged into http.server module
+  python -m http.server $port
+}
+
+function server {
+  param (
+    [parameter(Mandatory=$false)][ValidateRange(1096, [int]::MaxValue)][Int]$port = 3000
+  )
+  $script="const http = require('http'); const fs = require('fs'); let listenPort = process.env.PORT || $port; var server = http.createServer({}, (request, response) => { try { if (fs.existsSync('index.html')) { fs.readFile('index.html', (err, data) => { if (err) console.log(err); response.write(data.toString('utf8')); response.end(); }); } else { response.statusCode = 404; response.write('No file found - this only serves index.html'); response.end(); } } catch(err) { console.error(err); } }); console.log('Listening on port ' + listenPort); server.listen(listenPort, '127.0.0.1'); console.log('Server started');";
+
+  if (Get-Command node) {
+    Write-Host('Using node')
+    node --eval "$script"
+  }
+  elseif (Get-Command nodejs) {
+    Write-Host('Using nodejs')
+    nodejs --eval "$script"
+  }
+  # elseif (Get-Command node-16) {
+  #   Write-Host('Using node-16')
+  #   node-16 --eval "$script"
+  # }
+  # elseif (Get-Command node-20) {
+  #   Write-Host('Using node-20')
+  #   node-20 --eval "$script"
+  # }
+  else {
+    Write-Host('You need to install nodejs')
+  }
+}
+
+function nodeserver {
+  param (
+    [parameter(Mandatory=$false)][ValidateRange(1096, [int]::MaxValue)][Int]$port = 3000
+  )
+  $script = @"
+const http = require('http');
+const fs = require('fs');
+const path = require('node:path');
+
+let listenPort = process.env.PORT || $port;
+
+const server = http.createServer((req, res) => {
+    console.log('File request: ' + req.url);
+    const filePath = (req.url === '/') ? 'index.html' : path.join('.', req.url);
+    // console.log('Looking for: ' + filePath);
+
+    if (fs.existsSync(filePath) === false) {
+      // response.statusCode = 404;
+      // response.write('No file found - this only serves index.html');
+      // response.end();
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.end('404 Not Found');
+      return;
+    }
+
+    // determine the contentType by the file extension
+    const extname = path.extname(filePath);
+    let contentType = 'text/html';
+    if (extname === '.js') {
+        contentType = 'text/javascript';
+    } else if (extname === '.css') {
+        contentType = 'text/css';
+    } else if (extname === '.png') {
+        contentType = 'image/png';
+    }
+
+    // pipe the proper file to the res object
+    res.writeHead(200, { 'Content-Type': contentType });
+    fs.createReadStream(filePath).pipe(res);
+});
+
+console.log('Listening on port ' + listenPort);
+server.listen(listenPort, '127.0.0.1');
+console.log('Server started');
+"@
+
+  node --eval "$script"
+}
 
 # From https://superuser.com/questions/1325217/how-to-produce-a-linux-like-ls-output-in-powershell/1528550
 # I don't like this, but "works"
