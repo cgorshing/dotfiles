@@ -49,6 +49,7 @@ brew "neovim"
 brew "ngrep"
 brew "readline"
 brew "rsync"
+brew "sponge"
 brew "tig"
 brew "tree"
 
