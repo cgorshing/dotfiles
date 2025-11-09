@@ -247,5 +247,3 @@ function getit() {
     tmux send-keys -t phx:0.0 'cd /home/cgorshing/workspaces/phoenix/quick-intros' Enter
     tmux send-keys -t phx:0.0 'mix phx.server' Enter
 }
-
-}
