@@ -66,11 +66,6 @@ function turnOnRVM() {
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 }
 
-function update-brew() {
-  brew update && brew upgrade && echo 'Now sleeping....' && sleep 1 && echo 'brew cleanup:' && brew cleanup && echo 'sleeping again....' && sleep 1 && echo 'brew cleanup --prune-prefix' && brew cleanup --prune-prefix
-  # echo 'Not doing "brew prune" anymore - cause it is deprecated'
-}
-
 # shellcheck disable=SC2317
 function update-system() {
   sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
@@ -193,17 +188,6 @@ function sound-bad() {
   afplay ~/workspaces/livestream-jamesshore/build/sounds/fail.m4a
 }
 
-function flush-dns() {
-
-  sudo ifconfig en0 down
-  sleep 5
-
-  sudo killall -HUP mDNSResponder
-  sudo dscacheutil -flushcache
-  sudo route flush
-  sudo ifconfig en0 up
-}
-
 function restore-static-web() {
  git restore static/web
 }
@@ -213,18 +197,42 @@ function cleanup-gradle() {
   find ~/.gradle -mindepth 1 -type d -empty -delete
 }
 
-function unlock() {
-  chflags -R nouchg "$1"
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  function update-brew() {
+    brew update && brew upgrade && echo 'Now sleeping....' && sleep 1 && echo 'brew cleanup:' && brew cleanup && echo 'sleeping again....' && sleep 1 && echo 'brew cleanup --prune-prefix' && brew cleanup --prune-prefix
+    # echo 'Not doing "brew prune" anymore - cause it is deprecated'
+  }
+
+  function flush-dns() {
+
+    sudo ifconfig en0 down
+    sleep 5
+
+    sudo killall -HUP mDNSResponder
+    sudo dscacheutil -flushcache
+    sudo route flush
+    sudo ifconfig en0 up
+  }
+
+  function unlock() {
+    chflags -R nouchg "$1"
+  }
+
+  # Show active network interfaces
+  # alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+  # I had this as an alias, but the quoting was too much
+  # https://unix.stackexchange.com/questions/103241/how-to-use-ifconfig-to-show-active-interface-only
+  function ifactive {
+    ifconfig -a | awk 'BEGIN { print_it = 0 }
+    /status: active/ { print_it = 1 }
+    /^($|[^\t])/     { if(print_it) print buffer; buffer = $0; print_it = 0 }
+    /^\t/            { buffer = buffer "\n" $0 }
+    END              { if(print_it) print buffer }'
+  }
+
+fi
+
 }
 
-# Show active network interfaces
-# alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
-# I had this as an alias, but the quoting was too much
-# https://unix.stackexchange.com/questions/103241/how-to-use-ifconfig-to-show-active-interface-only
-function ifactive {
-  ifconfig -a | awk 'BEGIN { print_it = 0 }
-  /status: active/ { print_it = 1 }
-  /^($|[^\t])/     { if(print_it) print buffer; buffer = $0; print_it = 0 }
-  /^\t/            { buffer = buffer "\n" $0 }
-  END              { if(print_it) print buffer }'
 }
