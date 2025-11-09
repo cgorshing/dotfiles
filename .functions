@@ -233,6 +233,19 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
 fi
 
+function getit() {
+    tmux new-session -d -s postgres >/dev/null
+    tmux rename-window -t postgres:0 'main'
+    tmux select-pane -t postgres:0.0
+    tmux send-keys -t postgres:0.0 'cd /home/cgorshing/workspaces/postgres' Enter
+    tmux send-keys -t postgres:0.0 'podman-compose up' Enter
+
+    tmux new-session -d -s phx >/dev/null
+    tmux rename-window -t phx:0 'main'
+    tmux select-pane -t phx:0.0
+    # tmux send-keys -t phx:0.0 'turnOnASDF' Enter
+    tmux send-keys -t phx:0.0 'cd /home/cgorshing/workspaces/phoenix/quick-intros' Enter
+    tmux send-keys -t phx:0.0 'mix phx.server' Enter
 }
 
 }
