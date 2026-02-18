@@ -115,8 +115,6 @@ function update-gems() {
 }
 
 function turnOnASDF() {
-  # . "$HOME"/.asdf/asdf.sh
-  # . "$HOME"/.asdf/completions/asdf.bash
   if [[ -z "$ASDF_DATA_DIR" ]]; then
     export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=.tool-versions
     export ASDF_DATA_DIR=$HOME/.asdf
@@ -125,8 +123,10 @@ function turnOnASDF() {
 
     # This is not needed on my MacOS because asdf is now
     # managed by homebrew.
-    # How do I have it on the linux boxes and WSL?
-    # export PATH="$HOME/.asdf/bin:$PATH"
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+      export PATH="$HOME/.asdf/bin:$PATH"
+    fi
+
     . <(asdf completion bash)
     asdf current
   else
