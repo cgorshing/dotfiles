@@ -4,6 +4,26 @@ if test -f ~/workspaces/dotfiles-1/.functions; then
   source ~/workspaces/dotfiles-1/.functions
 fi
 
+function check_service_status() {
+  local service_status=$(systemctl status $1 2>/dev/null)
+  case $? in
+    0)
+      echo "[INFO] Service $1 is running normally
+      "
+      return 0
+      ;;
+    3)
+      echo "[ERROR] Service $1 not found"
+      return 1
+      ;;
+    *)
+      echo "[FATAL] Unable to determine status
+      of $1"
+      return 2
+      ;;
+  esac
+}
+
 # Remove ones I don't use/want
 unset tre;
 unset getcertnames;
