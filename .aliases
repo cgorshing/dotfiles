@@ -259,8 +259,10 @@ alias weather='curl http://wttr.in'
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # Needs https://corretto.aws/downloads/latest/amazon-corretto-11-aarch64-macos-jdk.pkg
   # TODO hmmmmmm asdf has corretto, do we want to use this or asdf?
-  function java17() { export JAVA_HOME=$(/usr/libexec/java_home -v 17*); }
-  function java21() { export JAVA_HOME=$(/usr/libexec/java_home -v 21*); }
+  function java17() { export JAVA_HOME=$(/usr/libexec/java_home -v 17); }
+  function java21() { export JAVA_HOME=$(/usr/libexec/java_home -v 21); }
+  function java25() { export JAVA_HOME=$(/usr/libexec/java_home -v 25); }
+  function javas() { /usr/libexec/java_home -V; }
 
 
   #Open files with:
