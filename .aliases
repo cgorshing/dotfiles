@@ -33,6 +33,7 @@ alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 # Get week number
 alias week='date +%V'
 
+alias keep_on_keeping_on='caffeinate -i -s -u -t 86400 & pmset displaysleepnow'
 
 
 #----------------------grep-----------------------------
