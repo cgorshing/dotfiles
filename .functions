@@ -108,7 +108,6 @@ function turnOnASDF() {
     fi
 
     . <(asdf completion bash)
-    asdf current
   else
     echo "asdf-vm has already been turned on"
   fi
@@ -188,15 +187,6 @@ function sound-bad() {
   afplay ~/workspaces/livestream-jamesshore/build/sounds/fail.m4a
 }
 
-function restore-static-web() {
- git restore static/web
-}
-
-function cleanup-gradle() {
-  find ~/.gradle -type f -atime +30 -delete
-  find ~/.gradle -mindepth 1 -type d -empty -delete
-}
-
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   function update-brew() {
@@ -216,6 +206,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   }
 
   function unlock() {
+    # You can verify a file is unlocked with: /bin/ls -lO "$1"
+    # There you will see "uchg" if it is locked and I think - if it is unlocked.
     chflags -R nouchg "$1"
   }
 
