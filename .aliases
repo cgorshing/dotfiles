@@ -115,7 +115,13 @@ if ls --color > /dev/null 2>&1; then # GNU `ls`
   LS_COLORS+=":*INSTALL=$dark_cyan"
   LS_COLORS+=":*TODO=$green"
 
-  LS_COLORS+=":*.json=38;5;178"
+  data="38;5;253"
+  # Data files
+  LS_COLORS+=":*.csv=$data"
+  LS_COLORS+=":*.json=$data"
+  LS_COLORS+=":*.xml=$data"
+  LS_COLORS+=":*.yml=$data"
+  LS_COLORS+=":*.yaml=$data"
 
   # misc files
   LS_COLORS+=":*.log=$dark_cyan"

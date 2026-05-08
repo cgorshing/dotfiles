@@ -7,6 +7,13 @@ Chrome & Brave
 Alfred
 Copy/Paste app
 
+https://github.com/james-see/fresh-mac/tree/master
+https://github.com/yatish27/omakos/tree/main
+https://github.com/webpro/dotfiles/blob/master/macos/defaults.sh
+
+# From https://x.com/juristr/status/1811875582998905222
+defaults write http://com.apple.finder CreateDesktop false && killall Finder
+
 # Did a cli tools install somewhere along here - it was an auto-popup
 
 Changed display to not auto-dim
