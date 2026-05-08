@@ -47,10 +47,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
       PATH="$PATH:/snap/bin"
   fi
 
-  if [ -d "$HOME/.local/bin" ] ; then
-      PATH="$HOME/.local/bin:$PATH"
-  fi
-
   # Needed this on Gentoo as well - remove the duplication
   # per https://github.com/pstadler/keybase-gpg-github
   # Avoid issues with `gpg` as installed via Homebrew.
@@ -59,9 +55,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   export GPG_TTY=$(tty)
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  if [ -d "$HOME/.local/bin" ] ; then
-      PATH="$HOME/.local/bin:$PATH"
-  fi
 
   export BASH_SILENCE_DEPRECATION_WARNING=1
 
@@ -101,11 +94,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:${PATH}"
   export MANPATH="$(brew --prefix)/opt/coreutils/libexec/gnuman:${MANPATH}"
 
-
-  if [ -d "$HOME/.local/bin" ] ; then
-      PATH="$HOME/.local/bin:$PATH"
-  fi
-
   # The next line updates PATH for the Google Cloud SDK.
   if [ -f "$HOME/tools/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/tools/google-cloud-sdk/path.bash.inc"; fi
 
@@ -128,6 +116,10 @@ elif [[ "$OSTYPE" == "freebsd"* ]]; then
 else
   # Unknown.
   :
+fi
+
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
 fi
 
 # Careful git uses LESS
