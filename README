@@ -10,9 +10,9 @@ done;
 
 For VSCode
 [[ -f ~/Library/Application\ Support/Code/User/settings.json ]] && mv ~/Library/Application\ Support/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json.backup
-ln -s ~/workspaces/dotfiles/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -s ~/workspaces/dotfiles/init/vscode-user-settings.json ~/Library/Application\ Support/Code/User/settings.json
 [[ -f ~/Library/Application\ Support/Code/User/keybindings.json ]] && mv ~/Library/Application\ Support/Code/User/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json.backup
-ln -s ~/workspaces/dotfiles/vscode-keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+ln -s ~/workspaces/dotfiles/init/vscode-keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 
 Links for workspaces
 mklink /D %USERPROFILE%\workspaces D:\%USERNAME%\workspaces
