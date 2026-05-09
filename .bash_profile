@@ -1,3 +1,14 @@
+
+# I do this so I can have a different setup for Ghostty and Terminal.
+# Terminal gets basically nothing. So I can play with the default way
+# of things.
+# iterm2 is setup to use zshell
+if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]]; then
+  # iTerm-specific setup
+  echo 'Remember, this is a plain jane empty setup'
+  return
+fi
+
 shopt -s histappend
 shopt -s cdspell
 

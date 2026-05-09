@@ -1,18 +1,5 @@
 #!/usr/bin/env bash
 
-if test -f ~/workspaces/dotfiles-1/.functions; then
-  source ~/workspaces/dotfiles-1/.functions
-fi
-
-# Remove ones I don't use/want
-unset tre;
-unset getcertnames;
-unset digga;
-unset gz;
-unset phpserver;
-unset targz;
-unset cdf;
-
 function tcpserver() {
   command tcpserver -B "#######\nThis is our banner\n######\n" 127.0.0.1 3333 expect -c 'expect "hello" ; send "hi\n" ; expect "bye" ; send "see you\n"'
 }

@@ -2,11 +2,6 @@
 # shellcheck disable=SC2034
 
 
-#source ~/workspaces/dotfiles-1/.aliases
-
-# Remove the alias' I don't use/want
-#unalias emptytrash;
-
 # This is specific to WSL 2. If the WSL 2 VM goes rogue and decides not to free
 # up memory, this command will free your memory after about 20-30 seconds.
 #   Details: https://github.com/microsoft/WSL/issues/4166#issuecomment-628493643
@@ -98,7 +93,7 @@ if ls --color > /dev/null 2>&1; then # GNU `ls`
 
   # File system
   LS_COLORS="no=0"                    # normal text
-  LS_COLORS+=":fi=0"                  # regular file
+  LS_COLORS+=":fi=0"                   # regular file
   LS_COLORS+=":di=$bold$dark_blue"    # directory
   LS_COLORS+=":ln=$italic$yellow"     # symlink
   LS_COLORS+=":pi=40;33"              # named pipe (FIFO)
@@ -157,8 +152,6 @@ alias gemspec='vi *.gemspec'
 
 alias depAnalyze='mvn dependency:analyze'
 alias depTree='mvn dependency:tree > depTree'
-alias surefire-grep='grep -H "Tests run" target/surefire-reports/*.txt | grep FAILURE'
-alias fails='vi target/surefire-reports/munit.*'
 
 alias mcp='mvn clean package'
 alias mct='mvn clean test'
@@ -189,16 +182,7 @@ alias how-ssh-get-pub-from-private='ssh-keygen -y -f ~/.ssh/id_rsa'
 alias grd='./gradlew'
 alias g='git status'
 alias gpr='git pull --rebase'
-alias gphm='git push heroku master'
 
-alias ga='git add '
-#alias gb='git branch '
-alias gc='git commit'
-alias gd='git diff'
-# I don't like these because bash completion doesn't work <--- Reminder to future self, cause I know I'll forget about this.
-# bash completion does work with 'git sw'
-#alias gs='git switch'
-#alias sw='git switch'
 alias gwm='git switch main'
 alias gsm='git switch main'
 
@@ -245,5 +229,3 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 else
   alias cat='batcat -A '
 fi
-
-alias k=kubectl
