@@ -6,12 +6,24 @@
   "bookmarks.navigateThroughAllFiles": false,
   "breadcrumbs.enabled": false,
 
+  "cSpell.userWords": [
+    "gorshing",
+    "pyserver",
+    "tcpserver",
+    "VENV"
+  ],
+  
+  // "latex-workshop.latex.autoBuild.run": "never",
+
   // Most folks won't need this, but my wife
   // uses a screenreader and this keeps VSCode
   // from prompting me about it
   "editor.accessibilitySupport": "off",
 
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
   "editor.fontFamily": "Fira Code",
+  //"editor.fontFamily": "Berkeley Mono Trial",
   "editor.fontLigatures": true,
   "editor.fontSize": 14,
   "editor.renderWhitespace": "all",
@@ -26,6 +38,7 @@
   "files.associations": {
     "*.log.*": "log",
     "log_*": "log",
+    "*.now": "log",
     ".gitconfig-*": "properties",
   },
 
@@ -44,12 +57,20 @@
     "**/node_modules/": true,
     "**/__pycache__/": true
   },
+
   "files.trimTrailingWhitespace": true,
 
+
+  "[log]": {
+    "editor.fontLigatures": false
+  },
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features",
     "editor.tabSize": 2
   },
+
+  // "latex-workshop.docker.image.latex": "texlive/texlive",
+  // "latex-workshop.docker.image.latex": "koppor/texlive",
 
   "[markdown]": {
     "files.trimTrailingWhitespace": false
@@ -89,13 +110,30 @@
   "isort.args":["--profile", "black"],
 
   "window.zoomLevel": 1,
-  "workbench.colorTheme": "Material Theme Darker",
+  // "workbench.colorTheme": "Material Theme Darker",
+  // "workbench.colorTheme": "Default Dark+",
+  // "workbench.colorTheme": "Default Dark Modern",
+  // "workbench.colorTheme": "Monokai",
+  "workbench.colorTheme": "Dark Modern",
   "workbench.editorAssociations": {
      "*.ipynb": "jupyter-notebook",
   },
   "workbench.iconTheme": "vscode-icons",
   "remote.SSH.remotePlatform": {
     "trial1": "linux",
-    "ubuntutrial": "linux"
-  }
+    "ubuntutrial": "linux",
+    "10.17.76.171": "linux"
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "chat.agent.enabled": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+
+  "vsicons.dontShowNewVersionMessage": true,
+
+  "svelte.enable-ts-plugin": true
 }

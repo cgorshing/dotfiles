@@ -1,4 +1,3 @@
-// Place your key bindings in this file to override the defaults
 [
   {
     "key": "ctrl+alt+]",
@@ -12,7 +11,7 @@
   },
 
   {
-    "key": "ctrl+/",  // whatever keybindings you want
+    "key": "cmd+/",
     "command": "runCommands",
     "args": {
       "commands": [
@@ -23,7 +22,7 @@
     "when": "editorTextFocus"
   },
   {
-    "key": "shift+alt+A",
+    "key": "shift+cmd+A",
     "command": "runCommands",
     "args": {
       "commands": [
@@ -33,5 +32,4 @@
     },
     "when": "editorTextFocus"
   }
-
 ]
