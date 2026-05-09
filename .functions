@@ -222,57 +222,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     /^\t/            { buffer = buffer "\n" $0 }
     END              { if(print_it) print buffer }'
   }
-
-  function netinfo() {
-    local wdutil_out
-    wdutil_out=$(sudo wdutil info 2>/dev/null)
-
-    echo "=== Network Info ==="
-
-    # WiFi
-    local ssid ip dns gateway
-    ssid=$(echo "$wdutil_out"    | awk '/SSID/{print $3}')
-    ip=$(echo "$wdutil_out"      | awk '/IPv4 Address/{print $4}')
-    dns=$(echo "$wdutil_out"     | awk '/DNS Addresses/{print $4}')
-    gateway=$(echo "$wdutil_out" | awk '/IPv4 Router/{print $4}')
-
-    echo "WiFi:      ${ssid:-not connected}"
-    echo "IP:        ${ip:-none}"
-    echo "Gateway:   ${gateway:-none}"
-    echo "DNS:       ${dns:-none}"
-    echo "Signal:    $(echo "$wdutil_out" | awk '/RSSI/{print $3, $4}')"
-    echo "Security:  $(echo "$wdutil_out" | awk '/Security/{print $3, $4}')"
-
-    # External IP
-    # echo "External:  $(curl -s --max-time 3 https://api.ipify.org 2>/dev/null || echo 'unavailable')"
-    echo ""
-    echo "=== Connectivity ==="
-
-    # Ping gateway
-    if ping -c 1 -W 1 10.17.76.1 &>/dev/null; then
-      echo "Gateway:   reachable (10.17.76.1)"
-    else
-      echo "Gateway:   UNREACHABLE (10.17.76.1)"
-    fi
-
-    # DNS lookup via Pi-hole
-    local lookup
-    lookup=$(dig @10.17.76.2 google.com +short +time=2 2>/dev/null | head -1)
-    if [[ -n "$lookup" ]]; then
-      echo "Pi-hole:   responding ($lookup)"
-    else
-      echo "Pi-hole:   NOT RESPONDING (10.17.76.2)"
-    fi
-
-    # Local NAS hostname lookup
-    local nas
-    nas=$(dig @10.17.76.2 nas.home.arpa +short +time=2 2>/dev/null | head -1)
-    if [[ -n "$nas" ]]; then
-      echo "NAS:       resolved ($nas)"
-    else
-      echo "NAS:       UNRESOLVED (nas.home.arpa)"
-    fi
-  }
 fi
 
 function getit() {
