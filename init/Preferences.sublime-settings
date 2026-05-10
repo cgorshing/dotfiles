@@ -4,7 +4,7 @@
     "jekyll_markdown_extension": "md",
     "jekyll_posts_path": "/Users/cgorshing/workspaces/website/_posts",
     "jekyll_templates_path": "/Users/cgorshing/workspaces/website/_templates",
-    "jekyll_uploads_path": "/Users/cgorshing/workspaces/website/uploads",
+    "jekyll_uploads_path": "/Users/cgorshing/workspaces/website/uploads"
   },
   "added_words": [
     "Heroku",
@@ -30,33 +30,33 @@
     ".Spotlight-V100",
     ".Trashes"
   ],
-  "folder_exclude_patterns": [".git", "node_modules"],
+  "folder_exclude_patterns": [
+    ".git",
+    "node_modules"
+  ],
   "font_face": "Berkeley Mono",
   "font_size": 16,
   "highlight_modified_tabs": true,
   "highlight_line": true,
   "hot_exit": "always",
-  "ignored_packages": ["Vintage"],
+  "ignored_packages": [
+    "Vintage"
+  ],
   "index_files": false,
   "line_padding_bottom": 5,
   "match_brackets": true,
   "match_brackets_angle": true,
   "open_files_in_new_window": false,
-  "predawn_findreplace_small": false,
   "predawn_quick_panel_small": false,
-  "predawn_sidebar_arrows": false,
-  "predawn_sidebar_large": false,
-  "predawn_sidebar_medium": false,
-  "predawn_sidebar_narrow": false,
-  "predawn_sidebar_small": true,
-  "predawn_sidebar_xlarge": false,
-  "predawn_sidebar_xsmall": false,
+  "predawn_sidebar_arrows": true,
+  "predawn_sidebar_medium": true,
   "predawn_tabs_active_underline": true,
-  "predawn_tabs_large": false,
-  "predawn_tabs_medium": false,
   "predawn_tabs_small": true,
   "remember_open_files": false,
-  "rulers": [80, 120],
+  "rulers": [
+    80,
+    120
+  ],
   "save_on_focus_lost": true,
   "show_encoding": true,
   "show_line_endings": true,
